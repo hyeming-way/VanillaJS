@@ -55,8 +55,94 @@
 		
 		document.write(`오늘은 ${nowMonth}월 ${nowDate}일 ${a}입니다.`);
 		
+		
+		
+		/*
+	    
+		JavaScript의 Date 객체에서 제공하는 주요 메서드들
+		(날짜 및 시간을 다룰 수 있는 기능들)
+
+
+		 let now = new Date(); // 현재 날짜와 시간을 가져오는 Date 객체 생성
+
+		 // 1. getFullYear() - 현재 연도를 가져오는 메서드
+		 console.log(now.getFullYear()); // 예: 2025 (현재 연도 반환)
+
+		 // 2. getMonth() - 현재 월을 가져오는 메서드 (0부터 시작, 0 = 1월, 11 = 12월)
+		 console.log(now.getMonth()); // 예: 1 (2월, 실제 월보다 1 작음)
+
+		 // 3. getDate() - 현재 날짜(일)를 가져오는 메서드
+		 console.log(now.getDate()); // 예: 7 (현재 날짜 반환)
+
+		 // 4. getDay() - 현재 요일을 가져오는 메서드 (0 = 일요일, 6 = 토요일)
+		 console.log(now.getDay()); // 예: 3 (수요일 반환)
+
+		 // 5. getHours() - 현재 시간을 가져오는 메서드 (0 ~ 23)
+		 console.log(now.getHours()); // 예: 14 (오후 2시 반환)
+
+		 // 6. getMinutes() - 현재 분을 가져오는 메서드 (0 ~ 59)
+		 console.log(now.getMinutes()); // 예: 30 (현재 분 반환)
+
+		 // 7. getSeconds() - 현재 초를 가져오는 메서드 (0 ~ 59)
+		 console.log(now.getSeconds()); // 예: 45 (현재 초 반환)
+
+		 // 8. getMilliseconds() - 현재 밀리초(1/1000초)를 가져오는 메서드 (0 ~ 999)
+		 console.log(now.getMilliseconds()); // 예: 123 (현재 밀리초 반환)
+
+		 // 9. getTime() - 1970년 1월 1일 00:00:00 (UTC) 이후의 경과 시간을 밀리초 단위로 반환
+		 console.log(now.getTime()); // 예: 1707308400000 (밀리초 값 반환)
+
+		 // 10. setFullYear(연도) - 연도를 변경하는 메서드
+		 now.setFullYear(2030); // 연도를 2030년으로 변경
+		 console.log(now.getFullYear()); // 2030 (변경된 연도 확인)
+
+		 // 11. setMonth(월) - 월을 변경하는 메서드 (0 = 1월, 11 = 12월)
+		 now.setMonth(5); // 6월로 변경 (5는 실제로 6월을 의미함)
+		 console.log(now.getMonth()); // 5 (6월 반환)
+
+		 // 12. setDate(일) - 날짜(일)를 변경하는 메서드
+		 now.setDate(15); // 15일로 변경
+		 console.log(now.getDate()); // 15 (변경된 날짜 확인)
+
+		 // 13. setHours(시) - 시간을 변경하는 메서드 (0 ~ 23)
+		 now.setHours(10); // 10시로 변경
+		 console.log(now.getHours()); // 10 (변경된 시간 확인)
+
+		 // 14. setMinutes(분) - 분을 변경하는 메서드 (0 ~ 59)
+		 now.setMinutes(45); // 45분으로 변경
+		 console.log(now.getMinutes()); // 45 (변경된 분 확인)
+
+		 // 15. setSeconds(초) - 초를 변경하는 메서드 (0 ~ 59)
+		 now.setSeconds(30); // 30초로 변경
+		 console.log(now.getSeconds()); // 30 (변경된 초 확인)
+
+		 // 16. setMilliseconds(밀리초) - 밀리초를 변경하는 메서드 (0 ~ 999)
+		 now.setMilliseconds(500); // 500밀리초로 변경
+		 console.log(now.getMilliseconds()); // 500 (변경된 밀리초 확인)
+
+		 // 17. toDateString() - 날짜를 사람이 읽기 쉬운 형식의 문자열로 변환
+		 console.log(now.toDateString()); // 예: Thu Jun 15 2030 (요일, 월, 일, 연도 반환)
+
+		 // 18. toTimeString() - 시간을 사람이 읽기 쉬운 형식의 문자열로 변환
+		 console.log(now.toTimeString()); // 예: 10:45:30 GMT+0900 (KST) (시간 반환)
+
+		 // 19. toISOString() - 날짜를 국제 표준(ISO 8601) 형식의 문자열로 변환
+		 console.log(now.toISOString()); // 예: 2030-06-15T01:45:30.500Z (UTC 표준 시간 반환)
+
+		 // 20. toLocaleString() - 현재 지역(국가) 설정에 맞춘 날짜와 시간 문자열 반환
+		 console.log(now.toLocaleString()); // 예: 2030. 6. 15. 오전 10:45:30 (로컬 형식 반환)
+
+		 // 21. toLocaleDateString() - 현재 지역 설정에 맞춘 날짜 문자열 반환 (연도, 월, 일)
+		 console.log(now.toLocaleDateString()); // 예: 2030. 6. 15. (로컬 날짜 형식 반환)
+
+		 // 22. toLocaleTimeString() - 현재 지역 설정에 맞춘 시간 문자열 반환 (시, 분, 초)
+		 console.log(now.toLocaleTimeString()); // 예: 오전 10:45:30 (로컬 시간 형식 반환)
+
+		 */
 	
 	</script>
+	
+	
 
 
 
