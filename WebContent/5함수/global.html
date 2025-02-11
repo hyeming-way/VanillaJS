@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+/*	
+		let a = 10;	// 전역스코프 영역(함수 외부 영역)에 변수 선언 후 10저장
+		
+		
+		function sum(){
+		
+			// 지역스코프 영역
+			console.log(`함수 내부 : ${a}`); //함수 내부 : 10
+		
+		}
+		
+		//함수호출
+		sum();
+		
+		
+		//전역 스코프 영역(함수외부영역)에서 a변수값을 얻어 출력해보자
+		console.log(`함수 외부 : ${a}`); //함수 외부 : 10
+		
+*/
+
+
+
+		function sum(){
+			
+			//지역스코프 영역에 a변수 선언하고 10저장
+			let a = 10;
+			
+			console.log(`함수 내부 : ${a}`);
+			
+		}
+		
+		//함수호출
+		sum();
+		
+		
+		//전역스코프 영역에서 지역스코프 영역에 선언한 a변수의 값은 사용할 수 없다.
+		console.log(`함수 외부 : ${a}`);
+		//Uncaught ReferenceError: a is not defined
+
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	</script>
+
+</body>
+</html>

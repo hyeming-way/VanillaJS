@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+	/*
+		switch(값){
+			case 같은지비교값:
+				실행문
+				break;
+			
+			case 같은지비교값2:
+				실행문2
+				break;		
+
+			case 같은지비교값3:
+				실행문3
+				break;
+				
+			default:
+				위 case유형 다 아닐 경우 실행문
+				break; //default에서는 안 써도 되지만, 쓰는게 정석~!
+		}
+	*/
+	
+	
+	
+	
+	
+	//주제 : 즐겨 이용하는 사이트 명을 입력받아 
+	//입력받은 사이트를 자동으로 재요청해서 웹브라우저 화면에 보여주는 예
+	
+	
+	//순서1. prompt함수를 이용하여 즐겨 이용하는 사이트 명을 입력받아 site변수에 저장
+	let site = prompt("네이버, 다음, 네이트, 구글 중에서 즐겨 이용하는 사이트명 하나를 입력해주세요.");
+				
+	//입력받은 사이트명에 따라 실제 http요청할 UPL주소를 저장할 변수 선언
+	let url;
+	
+	
+	//순서2. switch선택문을 이용하여 입력받은 사이트명에 따라 각 사이트 주소를 각각 url변수에 저장
+	
+		switch (site) { //입력받은 사이트명
+	
+			case "네이버": //site변수에 저장된 값이 "네이버"와 같다면?
+				url = "www.naver.com"; //url변수에 네이버 사이트 주소 저장
+				break;
+				
+			case "다음": //site변수에 저장된 값이 "네이버"와 같다면?
+				url = "www.daum.net"; //url변수에 다음 사이트 주소 저장
+				break;
+				
+			case "네이트": //site변수에 저장된 값이 "네이버"와 같다면?
+				url = "www.nate.com"; //url변수에 네이트 사이트 주소 저장
+				break;
+				
+			case "구글": //site변수에 저장된 값이 "네이버"와 같다면?
+				url = "www.google.com"; //url변수에 구글 사이트 주소 저장
+				break;
+	
+			default: //위 와 다른 단어를 입력했다면?
+					alert("보기 중에 없는 사이트명이 입력되었어요");
+				break; //default는 break생략가능
+			
+		}
+	
+	//순서3. 조건문 if를 활용해서 변수 url에 주소가 저장되어있다면?
+		if (url){
+			//location객체 : 웹브라우저 주소창에 작성한 주소 정보를 제공하는 객체
+			//location객체 메모리 내부에 href변수(속성)에 재요청할 주소를 저장시키면
+			//이 코드를 실행했을 때 웹브라우저 주소창에 자동으로 재요청할 주소가 적히면서 엔터를 누른 효과를 주어 재요청하게 된다.
+			location.href = "http://" + url;
+			
+		}
+	
+	
+	
+	</script>
+
+</body>
+</html>

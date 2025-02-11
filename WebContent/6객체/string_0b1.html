@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		
+	/*
+		String 객체메모리란?
+		- 특정 문자열을 저장해 놓고 전체 문자열에서 특정 문자열을 잘라낸다던지, 특정 문자열을 추출한다던지
+		  문자열을 관리하는 메소드를 가지고 있는 객체 메모리.
+		  예)"안녕하세요 반갑습니다." 전체 문자열 중에 "반갑습니다" 문자열을 잘라와서 얻을 수 있음.
+		  
+		String 객체 메모리 생성 방법 2가지
+		- 방법1. ""또는 '' 기호로 감싸서 "문자열" 형태로 작성하는 방법		<-- 더 효율적. 메모리 낭비X
+		- 방법2. new String('저장할 특정 문자열'); 형태로 작성하는 방법
+	*/	
+	
+	
+	
+	//String객체 메모리를 생성하면 제공하는 메소드 및 속성들 종류
+	
+	
+	//1. charAt(index)메소드
+	//- 전체 저장된 문자열에서 특정 문자의 index번호 위치에 해당되는 문자를 반환
+	
+			  //0123456789  <-index
+	let str = "web he she"; //컴퓨터 RAM의 특정 영역에 "web he she" 문자열 자체 저장
+							//그리고 그 특정 영역의 주소 번지가 str변수에 저장
+							
+	document.write(str.charAt(2), "<br>"); //"b"
+	
+	
+	//2. indexOf("찾을 문자") 메소드		*****많이 사용
+	//- 전체 문자열에서 왼쪽부터 찾을 문자와 일치하는 문자를 찾아
+	//- 제일 먼저 일치하는 문자의 index번호를 반환하는 메소드
+	//- 만약 찾을 문자가 없으면 -1를 반환하는 메소드
+	
+	document.write(str.indexOf("he"), "<br>"); //찾을 문자의 첫 인덱스 위치인 4를 반환
+	
+	
+	//3. lastIndexOf("찾을 문자")메소드	
+	//- 전체 문자열에서 오른쪽부터 찾을 문자와 일치하는 문자를 찾아
+	//- 제일 먼저 일치하는 문자의 index번호를 반환
+	//- 만약 찾을 문자가 없으면 -1을 반환
+	let str2 = "web he she he";
+			  //0123456789101112
+			  
+	document.write(str2.lastIndexOf("he"), "<br>"); //오른쪽부터 일치하는 문자열의 인덱스 번호인 11을 반환
+
+
+	//4. match("찾을 문자") 메소드		
+	//- 전체 문자열에서 왼쪽부터 찾을 문자와 일치하는 문자를 찾아
+	//  제일 먼저 찾은 문자 자체를 반환
+	//  만일 찾을 문자가 없으면 null 값을 반환
+	let str3 = "web he she he";
+			  //0123456789101112
+	
+	document.write(str2.match("boy"), "<br>"); //"boy"라는 문자열이 없으므로 null값이 출력됨
+	document.write(str2.match("he"), "<br>"); //앞 쪽부터 문자열을 찾아 "he"문자열 자체를 반환
+	
+	
+	//5. replace("바꿀문자", "새문자") 메소드		***많이 사용
+	//- 전체 문자열에서 왼쪽부터 "바꿀문자"와 일치하는 문자를 찾아 
+	//  제일먼저 찾은 문자를 "새문자"로 치환(변경)합니다.
+	let str4 = "web he she";
+	
+	
+	let str5 = str4.replace("web", "html"); //"web"문자열을 "html"로 변경
+	document.write(str5, "<br>");//"html he she"
+	
+	
+	//6. search("찾을문자") 메소드
+	//- 전체 문자열에서 왼쪽부터 "찾을문자"와 일치하는 문자를 찾아 
+	//  제일 먼저 일치하는 문자의 index위치 번호를 반환
+	
+	let str6 = "web he she";
+			  //0123456789
+	
+	document.write(str6.search("he"), "<br>"); //4
+	
+	
+	//7.slice(a, b) 메소드
+	//- 전체 문자열에서 앞의 a개의 문자를 자르고 b번째 이후의 문자를 자른 후 남은 문자열을 반환
+	let str7 = "hello javascript"; //hel(자름)/lo j/avascript(자름)
+			  //0123456789
+	
+	document.write(str7.slice(3, 7), "<br>"); //4~6번째 문자열 반환 "lo j"
+							//l, a의 사이인 "lo j"를 반환
+	
+	
+	//8. substring(a, b) 메소드 	*****많이 사용
+	//- a 인덱스 위치의 문자부터 b의 인덱스 위치 이전 문자까지의 전체 문자열을 잘라서 반환
+	
+	//slice()와 비슷하지만 중요한 차이점이 있음.
+	//1. 음수값이 들어가면 자동으로 0으로 변환됨(slice()메소드와 다른 점)
+	//2. a, b 값 중 더 작은 값이 문자열을 자를 시작위치, 큰 값이 끝 위치로 자동으로 변경됨
+	
+	let str8 = "hello javascript";
+	  		  //0123456789...
+	
+	document.write(str8.substring(3, -3), "<br>"); //hel
+	//음수 인덱스가 들어가면 자동으로 -3이 0으로 변환됨
+	//즉, substring(3, 0)으로 웹브라우저가 인식함.
+	//또 substring은 작은 숫자를 시작 위치, 큰 숫자를 끝 위치로 자동변경하여 substring(0,3)으로 변경함.
+	  		  
+	document.write(str8.substring(3, 7), "<br>"); //3번째부터 7번째 이전 문자열을 잘라 반환 "lo j"
+
+	
+	
+	//9. substr(a, 길이) 메소드
+	//- 전체 문자열에서 특정 a부터 지정한 길이만큼의 문자열을 추출해서 반환하는 메소드
+	//- 첫번째 매개변수a는 문자열에서 자르기 시작한 index위치 번호 넣기
+	//- 두번째 매개변수 길이는 자를 문자열의 길이 넣기
+	//- 원본 전체 문자열은 변경되지않음
+	
+	let str9 = "hello javascript"; //원본 문자열
+			  //0123456789...
+			  
+	document.write(str9.substr(3, 2), "<hr>"); //lo
+	
+	
+	
+	//10. split("자를 토큰문자") 메소드		*****많이 사용
+	//- 전체 문자열에서 지정한 "자를 토큰문자"를 기준으로 각 문자열을 나누어
+	//  새로운 배열메모리가 생성되면서 나눈 각 문자열을 배열에 차례로 저장 후 배열 메모리 주소 자체를 반환
+	
+	let str11 = "webkmobilek2025";
+	
+	let arr = str11.split("k"); //k를 기준으로 각 문자열을 나누어서 arr에 배열 저장
+	
+	arr.forEach(function(value){
+		document.write(value, "<br>");
+	}); //web, mobile, 2025 출력
+	
+	
+	
+	//11. toLowerCase()메소드
+	//- 전체 문자열에서 영문 대문자들을 모두 소문자로 변경한 후 변경된 전체 문자열을 반환하는 메소드
+	let str12 = "ABC";
+	let result = str12.toLowerCase();
+	
+	document.write(result, "<br>"); //"abc"
+		
+	
+		
+	//12. toUpperCase()메소드
+	//- 전체 문자열에서 영문 소문자들을 모두 대문자로 변경한 후 변경된 전체 문자열을 반환하는 메소드
+	let str13 = "abc";
+	let result2 = str13.toUpperCase();
+	
+	document.write(result2, "<br>"); //"ABC"
+	
+	
+	
+	//13. length속성 		*****많이 사용
+	//- 전체 문자열에 포함된 문자들의 총 갯수 반환하는 메소드
+	let str14 = "hello welcome";
+	
+	document.write(str14.length, "<br>"); //13
+	
+	
+	
+	//14.concat("새 문자열")메소드
+	//- 전체 문자열에 "새 문자열"을 결합한 하나의 전체 문자열을 반환하는 메소드
+	//  두개의 문자열을 하나로 합쳐서 반환
+	let str15 = "hello";
+	let result3 = str15.concat("web");
+	
+	document.write(result3, "<hr>"); //"helloweb"
+	
+	
+	
+	//문자의 아스키코드(ASCII Code)값이란?
+	//- 컴퓨터가 문자(알파벳, 숫자, 기호 등)를 숫자로 표한하는 표준 체계입니다.
+	//  즉, 각 문자마다 고유한 숫자(아스키 코드 값)가 지정되어 있으며
+	//  컴퓨터는 이 숫자를 이용해 문자를 저장하고 처리합니다. 		아스키코드.png파일 참고
+	
+	
+	
+	//15. charCodeAt(index) 메소드
+	//- 전체 문자열에서 매개변수로 전달한 index위치의 문자의 아스키코드값(10진수값) 반환하는 메소드
+	let str16 = "ABC";
+	
+	//전체 문자열의 0 index 위치에 있는 A문자의 아스키코드값(10진수값) 65를 반환해오고싶다.
+	let result4 = str16.charCodeAt(0);
+	
+	document.write(result4, "<br>"); // 65 출력
+	
+	
+	
+	//16. fromCharCode(아스키코드값) 메소드
+	//- 아스키코드값에 해당하는 문자를 반환
+	//- 문법		String.fromCharCode(아스키코드값);
+			
+	//아스키코드값 65에 대응되는 문자 A를 얻고 싶을 때
+	let result5 = String.fromCharCode(65);
+			
+	document.write(result5, "<br>"); // "A" 출력
+	
+	
+	
+	//17. trim() 메소드
+	//- 전체 문자열에서 앞 뒤 공백 문자열을 제거한 후 제거한 전체 문자열 반환
+	//  단, 전체 문자열에서 중간 공백이 있더라도 제거하지는 않습니다.
+	let str17 = " hell o ";
+	
+	document.write(str17.length, "<br>"); //8
+	
+	document.write(str17.trim(), "<br>"); //"hell o"
+	document.write(str17.trim().length, "<br>"); //6
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	</script>
+
+
+</body>
+</html>

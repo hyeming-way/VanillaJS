@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+	
+		let num = 2.1234;
+		
+		//Math객체는 따로 생성하지 않고.
+			//Math객체명.특정메소드(); 호출해서 사용
+			//Math객체명.속성명;    호출해서 사용
+		
+		//Math객체의 PI상수를 호출하면 3.1415926535....을 반환함 / 원주율 값 반환
+		let piNum = Math.PI;
+		document.write(piNum, "<br>");	
+			
+		//Math객체의  random()메소드는  0.0 ~ 0.1사이의 난수(랜덤값) 하나를 추출해서 반환함
+		//								 0.1은 포함되지 않음 
+		let rndNum = Math.random();
+		document.write(rndNum, "<br>");
+			
+		//변수 num의 값 2.1234에서 소수점 첫자리의 값을 무조건 올림처리하여 정수3을 반환함 
+		let ceilNum  = Math.ceil(num);//2.1234 -> 3
+		document.write(ceilNum, "<br>");//3
+			
+		//Math객체 내부에 만들어져 있는 round()메소드는 매개변수로 전달한 실수값의 소수점 첫째자리를 반올림하여 정수로 반환
+		//num변수의 값 2.1234에서 소수점 첫째자리을 반올림하여 정수2를 반환함
+		let roundNum =   Math.round(num);
+		document.write(roundNum, "<br>");//2 출력
+		
+		//num변수의 값 2.1234에서 소수점을 절사하여 정수 2를 반환함
+		let floorNum = Math.floor(num);
+		document.write(floorNum, "<br>");//2 출력
+		
+			
+			
+			
+		//max메소드 호출시 매개변수로 전달한 인수들 중에서 가장 최대값을 반환하는 메소드가 max메소드 이다.
+		let maxNum	= Math.max(10, 5, 8, 30);//30
+		
+		document.write(maxNum, "<br>");//최대값  30 
+		
+		//min메소드 호출시 매개변수로 전달한 인수들 중에서 최솟값 하나를 반환하는 메소드가 min메소드 이다.
+		let minNum = Math.min(10, 5, 8, 30);//5 
+		
+		document.write(minNum, "<br>");//최소값 5
+		
+		
+
+	
+	
+	</script>
+
+</body>
+</html>
+
+
+
+
+
+

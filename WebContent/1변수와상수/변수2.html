@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	//주제 : var로 선언한 변수메모리와 let으로 선언한 변수메모리 차이점
+	
+	//차이점1. var로 선언한 변수메모리는 중복해서 선언할 수 있기 때문에 좋지않다.
+		var age;
+		age = 25;
+		
+		var age;
+		age = 30;
+		
+		console.log(age); //개발자는 25값을 얻어 출력하고 싶은데,
+						  //30이 출력되어 당황하는 예
+						  
+						  
+		let userName;
+		userName = "김길동";
+		
+		// let userName;
+		// userName = "영구"; //let은 동일 변수명 변수 선언 불가능
+	console.log("-----------------------------------------");
+		
+		
+	//차이점2. let과 var의 호이스팅 차이를 이해하기위한 예제
+		console.log(myVar); //var로 선언한 변수의 값은 호이스팅기능 때문에
+							//변수값을 불러다 출력할 수 있습니다.
+							//여기서는 undefined가 출력됩니다.
+		var myVar = 10;
+		
+	/*
+		호이스팅(hoisring)이란?
+		- 자바스크립트에서 변수 선언(var)과 함수선언은 코드 실행전(console.log)에 메모리 상단으로 끌어올려 적히는 것처럼
+		    동작하는 기능을 말합니다.
+	*/
+	
+		console.log(myLet);
+		let myLet = 20;
+		
+		
+	/*
+		결론
+			var는 변수선언 전에 접근이 가능하지만, 값이 undefined로 초기화되므로
+			의도치않은 동작이 발생할 수 있습니다.
+			
+			let은 변수선언 전에 접근이 불가능하므로, 더 안전하게 코드를 작성할 수 있습니다.
+			
+			따라서 let을 사용하는 것이 더 권장됩니다.
+			
+			유지보수차원에서 알아두는게 좋음~!! (예전버전인 var로 만든 파일이 있을 수 있기때문에..!!!)
+		*/
+	
+	
+	
+	</script>
+</body>
+</html>

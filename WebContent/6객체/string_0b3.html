@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+	/*
+		주제 : 사이트 방문자에게 이름을 영문으로 입력받아
+			  방문자가 영문 이름을 소문자로 작성했을 경우 모두 대문자로 변경해서 출력
+			  
+			  또한, 사이트 방문자로부터 연락처를 입력받은 후 연락처 정보가 노출되지않도록
+			  전화번호 뒷 네자리는 ****로 출력되게 해보자.
+	*/
+	
+	//1. prompt()메소드를 호출하여 사이트 이용자의 영문 이름을 입력받아 userName변수를 선언해 저장
+	let userName = prompt("이름을 영문으로 입력해주세요.");
+	
+	
+	
+	//2. 입력받은 영문 이름이 소문자가 섞여 있으면 모두 대문자로 변경한 전체 문자열을 반환받아
+	//	 upperName변수를 선언해 저장
+	let upperName = userName.toUpperCase();
+	
+	
+	
+	//3. upperName변수에 저장된 영문 대문자의 이름을 출력 후 줄바꿈
+	document.write(upperName, "<br>");
+	
+	
+	
+	//4. prompt()메소드를 호출하여 사이트 이용자에게 전화번호를 입력받아 userPhone변수에 저장
+	let userPhone = prompt("전화번호를 입력해주세요.");
+	
+	
+	
+	//5. 입력받은 userPhone변수에 저장된 전화번호 문자열을 
+	//   전화번호 뒷자리 4자리를 제외한 앞 전화번호 문자열을 자른 후 
+	//   뒷 4자리는 "****"이 문자열과 결합 후 하나의 문자열로 만든 뒤 result변수에 저장
+	let result = userPhone.substring(0, 7) + "****"; //0101234****
+	
+	
+
+	//6. result변수에 저장된 전화번호 출력
+	document.write(result);
+	
+	
+	
+	
+	</script>
+
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 id="heading">자바스크립트</h1>
+	<p id="text">위 텍스트를 클릭해보세요</p>
+	
+	<!-- 자바스크립트 작성 위치1. 	.html파일 내부에 내부자바스크립트 코드 작성하기 -->
+	
+	<!-- <script></script>한쌍의 선언문 태그 역할을 자바스크립트 코드 작성 영역의 태그 -->
+	<!-- <script> 자바스크립트 코드를 작성하는 영역의 시작을 브라우저에게 알리는 여는 태그 -->
+	<script>
+		// document.querySelector()는 HTML 문서에서 원하는 태그(요소)를 찾는 명령어입니다.
+		// #heading은 id가 heading인 <h1 id="heading">자바스크립트</h1> 태그(요소)를 의미합니다.
+		// 찾은 요소 (h1태그)를 컴퓨터 메모리 중 특정 heading이라는 이름이 부여된 변수(메모리)에 저장합니다.
+		let heading = document.querySelector("#heading");
+		
+		
+		// onclick은 사용자가 heading이라는 이름이 부여된 변수(메모리)에 저장된 h1태그(h1요소)를 클릭했을 때 실행
+		// h1태그에 등록할 때 사용하는 예약된 단어입니다.
+		// function(){...}는 h1태그를 사이트 이용자가 클릭했을 때 자동실행될 구체적인 동작결과를 담고 있는 콜백함수라는 것 입니다.
+		heading.onclick = function(){
+			
+			heading.style.color = "red";
+			
+			
+		};
+	</script>
+	<!-- </script> 자바스크립트 코드를 작성하는 영역의 끝을 브라우저에게 알리는 닫는 태그 -->
+</body>
+</html>

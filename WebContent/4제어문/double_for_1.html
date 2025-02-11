@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+		//2단부터 9단까지 중첩 for문을 이용하여 반복해서 출력
+		
+		//바깥 for문은 단수만큼 2부터 9까지 1씩 증가하면서 반복
+		for(let i = 2; i <= 9; i++){ //2단~9단까지 반복
+			
+			document.write("<h1>" + i + "단</h1>");
+			
+			//안쪽 for문은 단마다 1에서 9까지 곱하므로 곱하는 수만큼 반복
+			for(let k = 1; k <= 9; k++){ 
+				
+				document.write(i + "X" + k + "=" + i * k + "<br>");
+				
+			}
+			
+		}
+	
+	</script>
+
+</body>
+</html>

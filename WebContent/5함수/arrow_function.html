@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<script>
+	
+		//화살표 함수 정의 후 호출해서 사용하는 문제
+		
+		
+		//1. 매개변수로 두개의 인수를 전달받아 더한 결과값을 반환하는 함수 정의 (상수명은 add)
+		// 위 함수 호출시 3, 5를 전달하여 8을 반환받아 출력
+		
+		
+		const add = (num1, num2) => num1 + num2; // 코드가 한 줄일 경우 {}와 return값 생략 가능!
+			
+		console.log( add(3,5) );
+		
+		console.log('-----------------------------------');
+		
+		
+		//2.매개변수로 두개의 인수를 전달받아 두 수 중 큰 값을 반환하는 함수 정의 (상수명 max)
+		//단, 삼항조건연산자를 사용해 첫번째 인수로 전달 받은 값이 두번째 인수로 전달받은 값보다 크면 
+		//첫번째 인수를 반환하고, 그렇지 않으면 두번째 인수를 반환
+		// 위 함수 호출시 7, 10을 전달하여 10을 반환받아 출력
+		
+		
+		const max = (num1, num2) => (num1 > num2 ? num1 : num2); // 코드가 한 줄일 경우 {}와 return값 생략 가능!
+			
+		
+		console.log( max(7, 10) );
+		
+		console.log('-----------------------------------');
+	
+		
+		//3.매개변수로 전달받은 하나의 인수값이 양수인지 음수인지 확인하는 함수 정의 (상수명 isPositive)
+		//위 함수 호출시 5를 전달하면 true를 반환, -2를 전달하면 false반환 받아 출력
+		
+		
+		const isPositive = num => num > 0;
+		
+		console.log( isPositive(5) ); //true
+		console.log( isPositive(-2) ); //false
+		
+		console.log('-----------------------------------');
+		
+		
+		//4.1부터 매개변수로 전달받은 하나의 인수값까지의 합을 구하는 함수 정의 (상수명 sumUpTo)
+		//위 함수 호출시 5를 전달하면 15(1+2+3+4+5)를 반환받아 출력
+		
+		const sumUpTo = (num1) => {
+			
+			let i = 0;
+			let sum = 0;
+			
+			for(i=1; i <= num1; i++){
+				
+				sum += i;
+
+			};
+			
+			return sum;
+			
+		};
+		
+		console.log( sumUpTo(5) );
+		
+		console.log('-----------------------------------');
+		
+		
+		//5.매개변수 num과 매개변수 count를 선언해서 함수 정의 
+		//count매개변수로 전달받은 숫자만큼 반복해서 num매개변수로 전달받은 값을 반복해서 출력
+		// (상수명 repeatNumber)
+		//위 함수 호출시 num매개변수에는 3을 전달하고, count매개변수에는 5를 전달하면
+		//3이 5번 반복해서 출력되게하자
+		
+		const repeatNumber = (num, count) => {
+			
+			let a = 0;
+			
+			for(a=1; a <= count; a++){
+				
+				console.log(num);
+				
+			}
+			
+		};
+		
+		repeatNumber(3, 5);
+		
+		console.log('-----------------------------------');
+		
+			
+		//6.매개변수 num으로 하나의 숫자를 전달받아서 3으로 나눈 나머지가 0이면 true반환
+		//3의 배수가 아니면 false반환하는 함수 정의 (상수명 isMultipleOfThree)
+		//위 함수 호출시 num매개변수에 9를 전달하면 true반환, 10을 전달하면 false반환받아 출력
+		
+		
+		const isMultipleOfThree = num1 => num1 % 3 === 0;
+			
+	
+		
+		console.log( isMultipleOfThree(9) ); //true
+		console.log( isMultipleOfThree(10) ); //false
+		
+		
+	
+	</script>
+
+
+</body>
+</html>

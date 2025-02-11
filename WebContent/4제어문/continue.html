@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		
+		//주제 : for반복문에서 continue문을 사용하여
+		//		1부터 10까지의 숫자중에서 홀수만 반복해서 출력
+		
+
+		for(let i = 1; i <= 10; i++){
+			
+			if (i % 2 == 0){
+				continue;
+			}
+			
+			document.write(i + "<br>");
+			
+		}
+	
+		
+		document.write("-------------------------" + "<br>");
+	
+	
+		//while문으로 변경해보기
+		
+		let i = 1;
+		
+		while(i <= 10){
+			
+			if(i % 2 ===0){
+				i++; //짝수일 경우 i를 1 증가시키고 다음 반복으로 넘어가게 해야함.
+				continue;
+			}
+			
+			document.write(i + "<br>");
+			
+			i++; //i값이 홀수일 경우에 1 증감시킴.
+			
+		}
+		
+		
+	
+	</script>
+
+
+</body>
+</html>

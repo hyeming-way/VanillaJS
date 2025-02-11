@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>회원가입</h1>
+	<script>
+		
+		//주제 : 사용자가 이름, 나이, 연락처를 입력창에 입력하면 
+		//let으로 선언된 변수메모리에 각각 저장하고 document.write()사용해서 출력하는 예제
+		
+		let userName = prompt("이름을 입력해주세요.");
+		let userAge = prompt("나이를 입력해주세요.");
+		let userContact = prompt("연락처를 입력해주세요.");
+		
+		document.write("<h1>가입시 입력한 정보</h1>"); 
+		document.write("이름: " + userName + "<br>"); 
+		document.write("나이: " + userAge + "<br>");
+		document.write("연락처: " + userContact + "<br>");
+		
+		
+	</script>
+</body>
+</html>

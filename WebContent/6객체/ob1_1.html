@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+		//사용자 정의 객체를 생성하는 문법2
+		
+		//{ } (리터럴)표기법
+		// 문법 : let 참조변수 = { 속성1:값1, 속성2:값2, 속성3:function(){ 기능구현코드; } };
+		
+		
+		//자동차(소나타) 객체 만들기
+		let sonata = {
+			
+			//속성(변수메모리) : 데이터(값)가 저장되는 메모리
+			color : "빨강",
+			model : "소나타",
+			type : "가솔린",
+			
+			//메소드(함수) : 기능
+			//1. 주행 기능
+			go : function(){
+				console.log("자동차가 주행합니다.");
+			},
+			//2. 정지기능
+			stop : function(){
+				console.log("자동차가 정지합니다.");
+			}
+			
+		};
+	
+		
+	//------------------------------------------------------------------------
+
+
+		//위에서 생성한 객체메모리의 속성 호출
+		// 문법 : 참조변수명.값이_저장된_속성명;
+		console.log( sonata.color );
+		console.log( sonata.model );
+		console.log( sonata.type );
+		
+		
+		//위에서 생성한 객체메모리의 메소드 호출
+		// 문법 : 참조변수명.function_저장된_속성명;
+		sonata.go();
+		sonata.stop();
+	
+	
+	
+		
+
+		
+	
+	</script>
+
+
+</body>
+</html>

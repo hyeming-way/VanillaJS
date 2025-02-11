@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+	/*
+		주제 : 문자열 객체 메모리의 메소드를 이용해서 
+			  사이트 이용자로 부터 입력받은 이메일의 유효성 검사하는 예제
+	*/
+	
+	
+	
+	//1. 사용자로부터 이메일을 입력 받아 userEmail변수에 저장
+	let userEmail = prompt("이메일을 입력해주세요.", "");
+	
+	
+	//2. 이메일 작성시 검사할 문자열들이 저장된 배열 메모리 생성
+	let arrUrl = [".co.kr", ".com", ".net", ".or.kr", ".go.kr"];
+	//			 	0			1		2		3		 4
+	
+	
+	//3. 입력한 이메일에 @단어가 포함 되어 있으면 true 저장하고, 포함 되어있지 않으면 false를 저장
+	//check변수를 만들고 초기값을 false로 저장하자
+	let check = false;
+	
+	
+	//4. 입력한 이메일과 arrUrl배열메모리에 저장된 단어를 하나씩 비교해서 일치하면 true를 저장
+	//   일치하지않으면 false를 저장해 check2변수를 만들고 초기값으로 false를 저장해놓자.
+	let check2 = false;
+	
+	
+	//5. if조건문을 이용해 입력한 이메일 전체 문자열에 '@'단어가 포함되어 있으면 
+	//   check변수에 true를 저장합시다.
+	if( userEmail.indexOf("@") > 0 ){
+	  //userEmail.includes("@") === true
+			check = true;		
+	}
+	
+	
+	//6. for문을 이용해 arrUrl배열을 순회하면서 입력한 이메일과 arrUrl배열에 저장된 각 문자열을 차례로 비교하여
+	//   1개의 단어라도 일치하면 check2변수에 true를 저장
+	for (let i=0; i<arrUrl.length; i++){
+		
+		//입력한 이메일 전체 문자열에 arrUrl배열에 저장된 각 문자열이 포함되어 있으면?
+		if(userEmail.indexOf( arrUrl[i] ) > 0 ){
+			check2 = true;
+		}
+	}
+	
+	
+	//7. check변수, check2변수에 저장된 값이 모두 true라면?
+	if(check && check2){
+		
+		document.write(userEmail);
+	}
+	else{
+		alert("이메일 형식을 잘못 입력했습니다.");
+	}
+	
+	
+	
+	//check변수는 플래그 변수로 조건식이 맞는지 안 맞는지 확인하는 변수
+	
+	</script>
+
+
+</body>
+</html>

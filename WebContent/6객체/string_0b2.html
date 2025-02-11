@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+		//문자열 저장 용도의 문자열 객체 생성
+		const pw = "124";
+		
+		//최소 글자수나 최대 글자수를 확인해야 할 때 유용함.
+		if (pw.length < 4){
+			document.write("비밀번호는 최소 4자리 이상 입력해주세요.");
+		}
+		
+		document.write("<br>");
+		
+		
+		
+		//String문자열 객체에서 제공하는 includes("특정문자열")메소드
+		//- 메소드의 매개변수로 전달되는 특정문자열이 전체 문자열에 포함되어 있느냐?라고 물어보는 메소드
+		//  만약 포함되어 있으면 true반환하고, 미포함이면 false를 반환
+		const email = "test!naver.com";
+		
+		//전체 문자열에 @ 문자열이 포함되어 있지 않으면??
+		if(email.includes("@") === false){
+			document.write("올바른 이메일 형식이 아닙니다. @를 포함해서 이메일을 작성해야 합니다.");
+		}
+		
+		document.write("<br>");
+		
+		
+		
+		//문자열 객체 String에서 제공하는 indexOf()메소드
+		//- 매개변수로 전달하는 특정 문자열이 포함이 되어 있냐 물어보는 메소드.
+		//  포함되어 있으면 특정 문자열이 포함된 시작 문자의 index위치 번호를 반환함.
+		//  그리고 특정 문자열이 포함되어 있지 않으면 -1를 반환함
+		
+		const email2 = "test!naver.com"; //검사할 전체 문자열
+		
+		//특정 문자열 @가 포함되어 있지 않으면?
+		if( email2.indexOf('@') === -1 ){
+			document.write("올바른 이메일 형식이 아닙니다. @를 포함해서 이메일을 작성해야 합니다.", "<br>");
+		}
+		
+		
+		
+		//replace("바꿀문자", "새문자") 메소드		
+		//- 전체 문자열에서 왼쪽부터 "바꿀문자"와 일치하는 문자를 찾아 
+		//  제일먼저 찾은 문자를 "새문자"로 치환(변경)합니다.
+		const pw2 = "1234";
+		
+		//매개변수로 전달한 "23"문자열을 두번째 매개변수로 전달한 "11"로 문자열 치환
+		let newPw2 = pw2.replace("23", "11"); 
+		
+		document.write(newPw2, "<br>"); //"1114"
+		
+		
+		
+		
+		
+	
+	</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+	/*
+		문제 : 사이트 방문자에게 현재 몇 월달인지 입력받습니다.
+		입력받은 월에 따라 각각 다른 문장을 출력하는 예
+	*/
+	
+	//순서1. 사이트 방문자에게 현재 월을 입력받아 mon변수에 저장
+	
+	let mon = prompt("현재 몇 월인지 숫자만 입력해주세요.");
+	
+	//순서2. 입력받은 월에 따라 각각 다른 문장을 출력시킵니다.
+	// switch 구문을 사용해서 작성
+
+	//-------------------------------------------------------------------
+	
+	let message; //계절 메세지를 저장할 변수 선언
+	
+	switch(true){
+	
+		case (mon >= 9 && mon <= 11) : //mon변수의 값이 9 ~ 11월일 경우
+			message = "독서의 계절 가을이네요!!";
+		break;
+		
+		case (mon >= 6 && mon <= 8): //mon변수의 값이 6 ~ 8월일 경우
+			message = "여행가기 좋은 여름이네요!!";
+		break;
+		
+		case (mon >= 3 && mon <= 5): //mon변수의 값이 3 ~ 5월일 경우
+			message = "햇살 가득한 봄이네요!!";
+		break;
+		
+		default ://mon변수의 값이 12 ~ 2월의 경우
+			message = "스키의 계절 겨울이네요!!";
+		break;
+	
+	}
+	
+	if(message){
+		document.write(message);
+	}	
+	
+	
+	</script>
+
+
+</body>
+</html>

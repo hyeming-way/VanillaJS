@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+		//연습
+		
+		//1. 매개변수로 두개의 인수를 전달받아 합을 구해 반환하는 add함수 정의
+		// add함수 호출시 3과 5를 전달해 8을 반환받아 console.log로 출력
+		
+		function add(num1, num2){
+			
+			return num1+num2;
+			
+		}
+		
+		console.log( add(3, 5) );
+		
+		console.log('---------------------------------------');
+		
+		
+		//2. 매개변수로 두개의 인수를 전달받아 두 값중에 큰 값을 반환하는 max함수 정의
+		// max함수 호출시 7과 10을 전달해 큰 값 10을 반환받아 console.log로 출력
+		
+		function max(num1, num2){
+			
+			if(num1 > num2){
+				
+				return num1;
+			}
+			
+			return num2;
+			
+		}
+		
+		console.log( max(7, 10) );
+		
+		console.log('---------------------------------------');
+		
+		
+		//3. 매개변수 한개의 숫자를 전달 받아 양수이면 true반환, 음수이면 false를 반환하는 기능의 isPositive함수 정의
+		//isPositive함수 호출시 5를 전달해서 true반환 받고 console.log로 출력
+		//isPositive함수 호출시 -2를 전달해서 false반환 받고 console.log로 출력
+		
+		function isPositive(num1){
+			
+			if(num1 < 0){
+				
+				return "false";
+				
+			}
+			return "true";
+			
+		}
+		
+		console.log( isPositive(5) ); //true
+		console.log( isPositive(-2) ); //false
+		
+		console.log('---------------------------------------');
+		
+		
+		//4. 매개변수로 한개의 숫자를 전달받아 전달받은 숫자가 짝수라면 true반환, 홀수라면 false반환 기능의 isEven 함수 정의
+		//isEven함수 호출시 4를 전달하면 true반환받아 console.log로 출력
+		//isEven함수 호출시 7을 전달하면 false반환받아 console.log로 출력
+		
+		function isEven(num1){
+			
+			if(num1 % 2 === 0){
+				
+				return "true";
+				
+			}
+			
+			return "false";
+			
+		}
+		
+		console.log( isEven(4) ); //true
+		console.log( isEven(7) ); //false
+		
+		console.log('---------------------------------------');
+		
+		
+		//5. 숫자 1부터 매개변수n으로 전달받은 인수의 합을 구하는 기능의 sumUpTo함수 정의
+		// 합을 계산해서 반환합니다.
+		// sumUpTo함수 호출시 5를 전달하면 15(1+2+3+4+5)를 구해 반환 받아 console.log로 출력
+		
+		function sumUpTo(n){
+			
+			let sum = 0;
+			
+			for(let i=1; i<=n; i++){
+				
+				sum += i;
+				
+			}
+			
+			return sum;
+			
+		}
+		
+		console.log( sumUpTo(5) );
+		
+	
+	</script>
+
+
+</body>
+</html>

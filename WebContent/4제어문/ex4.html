@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		
+	/*
+		문제4 : 간단한 계산기
+		
+		사용자에게 두 숫자와 연산자 (+, -, *, /)를 입력받아 결과를 출력하는 프로그램을 작성하세요.
+	*/
+	
+	
+	// 사용자에게 첫 번째 숫자를 입력받아 변수 num1에 저장하세요.
+	let num1 = parseFloat(prompt("첫 번째 숫자를 입력하세요","0"), 10);
+	console.log("num1->", num1);
+	
+	//사용자에게 연산자(+, -, *, /)를 입력받아 변수 operator에 저장하세요.
+	let operator = prompt("+, -, *, / 중 연산자 하나를 입력하세요.", "+");
+	console.log("operator->", operator);
+	
+	//사용자에게 두 번째 숫자를 입력받아 변수 num2에 저장하세요.
+	let num2 = parseFloat(prompt("두 번째 숫자를 입력하세요","0"), 10);
+	console.log("num2->", num2);
+	
+	//연산 결과를 저장할 변수 result를 선언하세요.
+	let result;
+	
+	//switch문을 사용하여 operator의 값에 따라 num1과 num2의 연산 결과를 result에 저장하세요.
+	//+, -, *, /을 처리하고, 나눗셈의 경우 num2가 0일 때는 오류 메세지를 출력하세요.
+	//아래에 주석구문 밑에 코드를 작성하세요.
+	
+	switch (operator) {
+
+		case "+": //operator 변수의 값이 "+"일 경우
+			result = num1 + num2;
+		break;
+		
+		case "-": //operator 변수의 값이 "-"일 경우
+			result = num1 - num2;
+		break;
+		
+		case "*": //operator 변수의 값이 "*"일 경우
+			result = num1 * num2;
+		break;
+		
+		case "/": //operator 변수의 값이 "/"일 경우
+			if(num2 == 0)
+				document.write("0으로 나눌 수 없습니다.");
+			else(num2 !== 0)
+				result = num1 / num2;
+		break;
+
+		default: //연산자 잘못 입력했을 경우
+			result = "잘못된 연산자 기호를 입력했음! 확인바람";
+		break;
+	}
+	
+	
+	if( operator == "+" || operator == "-" || operator == "*" ){ //나누기 외의 결과값 출력
+		document.write("결과 : ", + result);}
+	
+	else if (operator == "/"){ //나누기 중 num2이 0이 아닌 경우 결과값 출력
+			if(num2 !== 0){
+				document.write("결과 : ", + result);}}
+	
+	else document.write(result); //나누기 중 num2가 0일 경우 결과값 출력
+
+	
+	
+	</script>
+</body>
+</html>

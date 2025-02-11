@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+			//전역스코프영역
+			let a = 10; //전역변수 a
+			const b = 20; //전역상수 b
+			
+	
+		function sum() {
+			
+			//지역스코프영역
+			let a = 50; //지역변수 a	스코프영역이 다르기 때문에 변수명이 같아도 선언 가능
+			const b = 70; //지역상수 b
+			
+			
+			console.log(`함수 내부 a변수값 출력: ${a}`);
+			console.log(`함수 내부 b상수값 출력: ${b}`);
+			
+			//전역스코프와 지역스코프에 같은 식별자를 가지는 참조대상이 있다면
+			//먼저 같은 지역스코프의 식별자를 참조합니다.
+			
+			//같은 지역스코프에서 참조할 식별자를 찾지 못할 때만 
+			//전역스코프에 만들어 놓은 식별자를 찾습니다.
+			
+		}
+			
+		
+		sum();
+	
+	
+	</script>
+
+
+
+</body>
+</html>

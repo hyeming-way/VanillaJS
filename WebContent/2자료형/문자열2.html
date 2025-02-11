@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		//let예약어로 name이라는 이름의 변수 선언 동시에 "이정환" 문자열 저장
+		let name = "이정환";
+		
+		//let예약어로 welcomeText라는 이름의 변수선언 동시에 "님 반가워요!" 문자열 저장
+		let welcomText = "님 반가워요!";
+		
+		//let예약어로 resultWelcomText라는 이름의 변수선언 동시에
+		//name변수에 저장된 값 + welcomeText변수에 저장된 값을 + 연산한 하나의 문자열을
+		//resultWelcomeText변수 메모리에 저장
+		let resultWelcomeText = name + welcomText;
+		document.write(resultWelcomeText);
+		
+		//----------------------------------------------------------------------
+		
+		
+		//백틱기호 ``를 이용해도 하나의 문자열을 만들 수 있음
+		let guestName = "이정환";
+		
+		let greetingText = `welcom ${guestName}`;
+		console.log(greetingText);
+		
+		//----------------------------------------------------------------------
+		
+		//name변수를 선언하는 동시에 문자열 "김길동" 저장
+		name = "김길동";
+		
+		//location2변수를 선언하는 동시에 문자열 "역곡" 저장
+		let location2 = "역곡";
+		
+		//introduce변수를 선언하는 동시에
+		// 백틱``을 이용해 name변수에 저장된 문자열을 불러오고 은<-을 작성한 후 
+		//location2변수에 저장된 문자열을 불러오고 '에 살고 있습니다.'작성한 전체 문자열을 만들어 변수에 저장 
+		let introduce = `<br>${name}은 ${location2}에 살고 있습니다.`;
+		
+		document.write(introduce, "<br>");
+		document.write(typeof introduce, "<br>");
+		
+		
+		
+		
+		
+	</script>
+</body>
+</html>

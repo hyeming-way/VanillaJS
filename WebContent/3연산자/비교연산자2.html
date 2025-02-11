@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let a = 10;
+		let b = 20;
+		let c = 10;
+		let f = "20";
+		let result;
+		
+		//a변수에 저장된 값이 b변수에 저장된 값보다 크냐? 조건식 작성 후 
+		//조건식의 결과값을 result변수에 저장
+		result = a > b; //10 > 20
+		document.write(result, "<br>"); //false반환
+		
+		//a변수에 저장된 값이 b변수에 저장된 값보다 작으냐? 조건식 작성 후 result변수에 대입
+		result = a < b; //10 < 20
+		document.write(result, "<hr>"); //true반환
+		
+		//----------------------------------------------------------------------
+		
+		//b변수에 저장된 값20이 f변수에 저장된 "20"과 값이 같으냐? 조건식 작성 후 result변수에 대입
+		result = b == f; //20 == "20"
+		document.write(result, "<br>"); //true반환
+		
+		//a변수의 10과 b변수의 20의 값이 같냐? 조건식 작성 후 result변수에 대입
+		result = a != b; //10 != 20
+		document.write(result, "<br>"); //true반환
+		
+		//b변수의 20과 f변수의 20의 숫자형태도 같고 데이터형태도 같으냐? 조건식 작성 후 result변수에 대입
+		result = b === f; //20 === "20"
+		document.write(result, "<br>"); //false반환
+		
+		//b변수의 20과 f변수의 "20"의 숫자형태 그리고 자료형 모두 다르냐? 조건식 작성 후 result변수에 대입
+		result = b !== f; //20 !== "20"
+		document.write(result, "<br>"); //true반환
+		
+		
+	
+	</script>
+</body>
+</html>

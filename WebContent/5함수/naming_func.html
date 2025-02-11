@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<script>
+	
+		/*
+		
+			함수표현식으로 함수 정의
+			
+			- 문법
+			
+				const 상수명 = function 함수명(매개변수1, 매개변수2){		//매개변수는 생략가능
+					실행문;
+				};
+			
+			- 호출문법
+			
+				상수명();
+	
+		*/
+		
+		
+		//실습1. 함수표현식 작성 방법으로 구구단 3단을 반복해서 출력하는 기능의 함수 정의
+		
+		const gugudan = function naming(){ //<- 이름이 존재하는 네이밍 함수 형태
+			
+			for(let i = 1; i <= 9; i++){
+				
+				console.log(`3 * ${i} = ${3 * i}`);
+				
+			}
+			
+		};
+		
+		//실습2. 위 정의해놓은 naming함수 호출
+		gugudan();
+		gugudan();
+		
+		console.log('-----------------------------');
+
+		
+		const gugudan2 = function(){ // <-익명 함수 형태
+			
+			for(let i = 1; i <= 9; i++){
+				
+				console.log(`4 * ${i} = ${4 * i}`);
+				
+			}
+			
+		};
+		
+		
+		gugudan2();
+		
+
+		/*
+			함수표현식으로 함수를 정의할 때는 const키워드를 주로 사용합니다.
+			var, let키워드를 사용해도 문제는 없지만, const로 정의하는 것이 좋습니다.
+			보통 함수는 일관된 목적을 가진 코드 집합이라서 재정의해서도, 재할당해서도 안 되는 경우가 많기 때문입니다.
+		*/
+		
+		
+		
+	
+	</script>
+	
+</body>
+</html>

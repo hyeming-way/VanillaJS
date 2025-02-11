@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let a = 3;
+		let b = 4;
+		let c = a++	+ ++b + b++ + ++a;
+		//a++는 후위증감연산자로 먼저 3을 사용 후 a는 4가 됨. / 3 + ++b + b++ + ++a / 현재 a=4
+		//++b에 의해 먼저 b를 1증감하여 5가 됨 / 3 + 5 + b++ + ++a / 현재 a=4, b=5
+		//b++로 현재 b인 5값을 사용 후 1을 증감함 / 3 + 5 + 5 + ++a /현재 a=4, b=6
+		//++a로 현재 a인 값 4를 1증감 후 사용 / 3 + 5 + 5 + 5 / 현재 a=5, b=6
+		
+		document.write("c=", c, "<br>", "a=", a, "<br>", "b=", b, "<br>"); //c=18, a=5, b=6
+	
+	</script>
+
+</body>
+</html>

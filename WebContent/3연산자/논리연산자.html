@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	/*
+		논리연산자?
+		- 피연산자를 논리적으로 평가한 뒤, 조건에 맞는 피연산자를 반환하는 연산을 수행하는 연산자
+		- 종류 
+			||		&&		!
+	*/
+	
+	//and연산자 &&는 두 조건이 모두 true일 경우 true를 반환한다.
+	document.write(true && true, "<br>"); //true
+	document.write(true && true && true, "<hr>"); //true
+	
+	/*
+	어떤 피연산자든 모두 논리형으로 평가
+	숫자형을 쓰거나 문자열을 쓰거나 전부 논리값으로 평가한다.
+	""빈문자열, undefined, 0, null만 거짓으로 평가되고 나머지는 참으로 평가한다.
+	*/
+	
+	console.log("" && "cat"); //false인 ""빈문자열이 출력된다.
+	console.log(undefined && "cat"); //false인 undefined가 출력됨.
+	console.log(0 && "cat"); //false인 0이 출력됨.
+	console.log(null && "cat"); //false인 null이 출력됨
+	
+	
+	console.log("cat" && "dog"); //둘다 참일 경우 마지막 참을 반환. dog출력됨 
+	console.log("cat" && "dog" && "bird"); //모두 다 참일 경우 마지막 참을 반환. bird출력됨 
+	
+	//------------------------------------------------------------------------------
+	
+	/*
+	OR연산자 ||는 조건 중 하나가 true일 경우 true를 반환함
+	*/
+	console.log(false || true || false); //true반환
+	console.log(false || false); //false반환
+	console.log(false || false); //false반환
+	
+	console.log(false || "cat"); //cat반환
+	console.log("dog" || "cat"); //dog반환
+	
+	//------------------------------------------------------------------------------
+	
+	//NOT연산자 !는 피연산자나 식을 평가한 논리값의 반대값을 반환
+	console.log(!false); //true반환
+	
+	console.log(!(10<20)); //false반환
+	
+	console.log( !(10<20 && 20<10) ); //ture반환
+	
+	console.log( !true && false ); //false반환
+	
+	console.log ( !(true && false ) ); //true반환
+	
+	</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

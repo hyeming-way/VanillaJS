@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script>
+		/*
+			주제 : 삼항조건연산자를 이용해 변수에 저장된 값이 홀수인지 짝수인지 판별하는 간단한 예
+		*/
+		
+		let num = 1;
+		let result; //undefined
+		
+		// num변수에 저장된 값이 짝수인가?
+		result = num % 2 === 0 ? "짝수" : "홀수"; //false반환
+		
+		console.log(result); //"홀수"반환
+		
+		//------------------------------------------------------------------------------
+		
+		num = 10; //10저장
+		
+		//num변수에 저장된 값이 짝수가 아닌 홀수이냐?
+		//console.log를 이용해 작성
+		num % 2 !== 0 ? console.log("홀수") : console.log("짝수"); //"짝수"반환
+	
+	
+	</script>
+
+
+
+</head>
+<body>
+</body>
+</html>

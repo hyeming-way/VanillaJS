@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+		
+		/*
+			주제6. 객체 내부에 메소드 만들기
+			- 함수 이름에 해당하는 메소드 이름 먼저 지정한 후 function예약어를 사용해 만듭니다.
+			- 문법
+				메소드명 : function(){}
+		*/
+		
+		let book3 = {
+				title : "점프투 파이썬",
+				pages : 360,
+				buy : function(){
+					console.log("이 책을 구입했습니다.");
+				}
+				//JS버전 업데이트로 메소드를 정의할때 function예약어를 생략 가능
+				//buy({console.log("이 책을 구입했습니다."}))
+				
+		}
+		
+		console.log( JSON.stringify (book3) ); //{"title":"점프투 파이썬","pages":360}
+		
+		
+		
+		/*
+			주제7. 만들어 놓은 book3 객체의 메소드 호출
+		*/
+		
+		book3.buy(); //이 책을 구입했습니다.
+		
+		
+		
+		/*
+			주제8. 객체 내부에 만들어진 메소드 호출하여 사용시 this 예약어에 대해
+		*/
+		let book4 = {
+				title : "Javascript",
+				pages : 500,
+				author : "김말똥",
+				done : false,
+				finish : function(){
+					//메소드 안에서 book4객체명.done키를 사용한다면?
+					//book4.done === false ? console.log("읽는 중") : console.log("완독");
+					
+					//메소드 안에서 this예약어는 현재 만들어진 객체의 주소값을 기억하고 있는 예약어이다.
+					this.done === false ? console.log("읽는 중") : console.log("완독");
+				}
+				
+		}
+		
+		//book4객체 내부에 만들어져있는 finish메소드 호출
+		book4.finish(); //읽는 중
+		
+		
+		
+		/*
+			주제9. 객체 메모리 복사
+		*/
+		
+		//1. 원시 유형의 값(자료:숫자, true)복사하기
+			let number1 = 100;
+			let number2 = number1;
+			
+			console.log(number1); //100
+			console.log(number2); //100
+			
+			number2 = 200;
+			
+			console.log(number1); //100
+			console.log(number2); //200
+		
+		//2. 객체메모리의 참조 주소값 전달하여 객체메모리 복사
+			let bag1 = { color:"blue", with:30, height:50 } //객체메모리 주소 0x16
+			// [0x16]
+			
+			let bag2 = bag1;
+			// [0x16] = [0x16];
+			
+			console.log(bag1); //{ color:"blue", with:30, height:50 }
+			console.log(bag2); //{ color:"blue", with:30, height:50 }
+			
+			bag2.color = "red";
+		
+			console.log( JSON.stringify (bag1) ); //{ color:"red", with:30, height:50 }
+			console.log( JSON.stringify (bag2) ); //{ color:"red", with:30, height:50 }
+			
+			//결론 : 객체를 복사할 경우에는 값이 아니라 생성된 객체메모리 주소를 복사한다는 의미 *****
+			
+			
+			
+			
+			
+	
+	
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	
+	<script>
+	
+		/*
+		자료형변환 방법2가지
+		방법1. 묵시적형변환(자동 형변환)
+		방법2. 명시적형변환(개발자가 어떤코드를 작성ㅇ해서 강제로 형변환)
+		*/
+		
+		//방법1. 묵시적 형변환 형태 알아보기
+		let number = 10;
+		let string = "20";
+		
+		const result = number + string;
+		document.write(result);
+		document.write("<br>");
+		
+		document.write("20" + 10, "<hr>");
+
+		
+		
+		//방법2. 명시적 형변환(강제 형변환)
+		//Number함수에 숫자형태로 된 문자열을 넣으면 숫자만 추출해서 정수로 반환해줌
+		//예)Number("100개"); -> 숫자 100으로 변환해서 제공
+		let strA = "10";
+		let strB = "10개";
+		
+		let numB = Number(strB);
+		document.write(numB, "<br>"); //NaN
+		//숫자가 아닌 문자를 포함한 전체 문자열을 집어넣으면 명시적형변환이 일어나지않아 NaN이라는 값을 반환함.
+		
+		let numA = Number(strA);
+		document.write(typeof numA, numA, "<hr>"); //숫자 10을 반환
+		
+		
+		
+		/*
+		만약 숫자뿐만아니라 문자도 전체문자열에 포함되어있으면 문자열을 숫자로 변환해야합니다.
+		그럴때는 parseInt라는 이름의 함수를 사용하면 됩니다.
+		- 사용법
+			parseInt(숫자가포함된문자열, 숫자로변환할값/2~36사이의정수);
+			ex) parseInt("이놈10요놈", 10);
+		*/
+		
+		let strC = "10";
+		let strD = "10개";
+		
+		let resultC = parseInt(strC, 10);
+		document.write(typeof resultC, resultC, "<br>");
+		
+		let resultD = parseInt(strD, 10);
+		document.write(typeof resultD, resultD, "<hr>");
+		
+		
+		//만약 문자열이 숫자로 시작한 전체 문자열이라면?
+		let str = parseInt("123안녕");
+		document.write(str, "<br>"); //123
+		
+		let str2 = parseInt("안녕123");
+		document.write(str2, "<br>"); //NaN
+		
+		let str3 = parseInt("dfsfsdf");
+		document.write(str3, "<hr>"); //NaN
+		
+		
+		
+		//---------------------------------------------------------------------
+		
+		//숫자형을 문자열로 명시적 형변환시 String함수 사용
+		//String함수 사용 문법 : String(문자열로변환할숫자);
+		let num = 2022;
+		let str4 = String(num);
+		document.write(typeof str4, str4, "<hr>");
+		
+		
+		//---------------------------------------------------------------------
+		
+		let varA;
+		let varB = null;
+		let varC = true;
+		
+		let str5 = String(varA);
+		document.write(typeof str5, str5, "<br>"); //"undefined"
+		
+		let str6 = String(varB);
+		document.write(typeof str6, str6, "<br>"); //"null"
+		
+		let str7 = String(varC);
+		document.write(typeof str7, str7, "<br>"); //"true"
+		
+		
+		
+	</script>
+
+
+	 
+
+
+</body>
+</html>

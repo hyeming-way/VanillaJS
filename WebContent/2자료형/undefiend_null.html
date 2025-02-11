@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script>
+	//주제 : undefined값과 null값 비교
+	
+	let variable1; //선언만 하고 값 할당 안 한 경우 (undefined)
+	
+	let variable2 = null; //명식적으로 null값을 할당 
+	
+	console.log("variable1:", variable1); //undefined
+	console.log("variable2:", variable2); //null
+	
+	console.log("Type of variable1 : ", typeof variable1); //undefined
+	console.log("Type of variable2 : ", typeof variable2); //object
+	
+	//비교연산
+	console.log(variable1 == variable2); //두 값이 비어있냐? true
+	console.log(variable1 === variable2); //의미는 같아도 데이터유형은 다르다. false
+	
+	</script>
+
+
+</head>
+<body>
+</body>
+</html>

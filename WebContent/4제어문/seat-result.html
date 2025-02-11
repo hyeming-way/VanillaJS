@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	
+	<style>
+		
+    table, td {
+      border : 1px solid #ccc;
+      border-collapse: collapse;   /*테이블의 바깥 테두리 선과   셀의 바깥테두리를 합쳐서 중복되지 않도록하기*/
+    }
+    /*셀 에 대한 추가 스타일 정의*/
+    td {
+        padding:5px;
+        font-size: 0.9em; /*글자 크기를 0.9em로 설정*/
+        /*
+	     em 단위는 상대적인 크기를 나타내며
+	          부모 요소나 또는 현재 요소의 폰트 크기를 기준으로 계산됩니다.
+	          일반적으로 기본 폰트 크기(body나 html요소의 기본값)는 16px입니다.
+	          따라서 1em은  16px에 해당합니다.
+	
+	          글자 크기를 현재 요소의 폰트 크기의 90%로 설정합니다
+	          기본 폰트 크기는 16px이기때문에
+	     0.9em은 16px * 0.9 = 14.4px에 해당합니다.
+        */
+        
+        text-align: center;
+      }
+	
+	</style>
+
+</head>
+<body>
+	
+	<!-- 
+		주제 : 입장객의 수와 한 줄에 앉을 수 있는 사람의 수를 입력받아
+		좌석배치도를 생성하는 프로그램
+	 -->
+	
+	<h1>자리배치도</h1>
+	
+	<script>
+	
+		//i와 j는 for반복문에서 초기식 자리에 작성될 변수 
+		//i는 현재 줄(행)의 행 인덱스(위치번호)
+		//j는 현재 줄에서의 열 인덱스(열의 위치번호)
+		let i, j;
+	
+		//전체 입장객 수를 prompt()를 이용하여 입력받아 memNum변수에 저장
+		let memNum = prompt("전체 입장객 수는 몇 명인지 입력해주세요.");
+		
+		//한 줄에 앉을 인원 수를 입력받아 colNum변수에 저장
+		let colNum = prompt("한 줄에 몇 명씩 앉을지 입력해주세요.")
+		
+		//전체 줄(행)수를 계산하여 저장할 rowNum변수 선언
+		/*
+			예를들어, 전체 입장객수(memNum)이 10명이고
+			한 줄에 앉을 수 있는 사람수(colNum)가 4명이라고 가정하면
+			이 경우, 전체 줄 수(rowNum)는 다음과 같이 계산됨
+			
+			첫 번째 줄 : 4명
+			두 번째 줄 : 4명
+			세 번째 줄 : 2명 (총 10명이기때문에 마지막 줄은 2명)
+			
+			따라서 rowNum변수값은 3줄이 됩니다.
+		*/
+		let rowNum;
+			
+			
+		//전체 줄 수 계산
+		//전체 입장객 수를 한 줄에 앉을 사람수로 나누었을 때 나머지가 0과 같으면 됨
+		if(memNum % colNum === 0){
+			
+			//전체 줄 수는 memNum/colNum
+			rowNum = parseInt(memNum / colNum);
+			
+		}
+		else {//나머지가 0이 아니면
+			
+			//전체 줄 수는 memNum / colNum의 몫에 1을 더한 값이 됩니다.
+			//이는 마지막 줄에 남은 좌석을 위해 한 줄을 더 추가하는 것입니다.
+			rowNum = parseInt(memNum / colNum) + 1;
+			
+		}
+		
+		//테이블 표 생성
+		document.write("<table>");
+			
+			//바깥 for문은 전체 줄 수 만큼 반복
+			for(i = 0; i < rowNum; i++){
+				
+				//각 줄은 <tr>태그로 시작
+				document.write("<tr>");
+				
+					//안 for문은 한 줄에 앉을 수 있는 사람 수만큼 반복
+					for(j = 1; j <= colNum; j++){
+						
+						//현재 좌석번호를 계산해서 변수 선언 후 저장
+						let seatNo = i * colNum + j;
+						
+						//좌석번호가 전체 입장객 수를 초과하면 반복문 종료
+						if(seatNo > memNum){
+							break;
+						}
+						
+						document.write("<td> 좌석" + seatNo + "</td>");
+						
+					}
+					
+				//각 줄 </tr>태그 종료
+				document.write("</tr>");
+				
+			}
+		
+		document.write("</table>");
+			
+		
+	
+	</script>
+	
+	
+	
+	
+
+</body>
+</html>

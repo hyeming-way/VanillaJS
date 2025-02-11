@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	//예를 들어 num1변수에 10이 저장되어 있다고 가정하자
+	//num1변수에 저장된 10을 1차감한 9로 만들어 만든 9를 다시 num1 변수에 저장시키는 식
+	let num1 = 10;
+	let num2 = 20;
+	let result;
+	
+	num1 --; //9
+	document.write(num1, "<br>");
+	
+	num1 ++; //10
+	document.write(num1, "<hr>");
+	
+	result = num2++; //후위증감연산자, num2를 result에 먼저 대입 후 +1이 됨. 변수++의 경우 변수 사용 후 증감
+	document.write(result, "<br>"); //20
+	document.write(num2, "<hr>"); // 21
+	
+	result = ++num2; //전위증감연산자, ++변수의 경우 변수에 1 증감하여 대입함.
+	document.write(result, "&nbsp;&nbsp;", num2, "<br>"); //22  22
+
+	
+	
+	
+	
+	</script>
+</body>
+</html>

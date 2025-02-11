@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+	
+	/*
+		문제2 : 계절 판별기
+		
+		사용자에게 월을 입력받아 해당 월의 계절을 출력하는 프로그램을 작성하시오.
+		
+		3~5 : "봄"
+		6~8 : "여름"
+		9~11 : "가을"
+		12, 1, 2 : "겨울"
+	*/
+	
+	let mon = parseInt(prompt("현재 월을 입력하세요.", "1월"), 10);
+	
+	switch (mon) {
+		
+		case 3: case 4: case 5: //3~5월
+			document.write("봄");
+			break;
+			
+		case 6: case 7: case 8: //6~8월
+			document.write("여름");
+			break;
+			
+		case 9: case 10: case 11: //9~11월
+			document.write("가을");
+			break;
+			
+		case 12: case 1: case 2: //12~2월
+			document.write("겨울");
+			break;
+
+		default:
+			document.write("잘못 입력하셨습니다.")
+		break;
+	}
+	
+	</script>
+</body>
+</html>

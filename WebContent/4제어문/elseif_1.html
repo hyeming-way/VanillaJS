@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+	/*
+		문제 : 사이트 방문자에게 현재 몇 월달인지 입력받습니다.
+		입력받은 월에 따라 각각 다른 문장을 출력하는 예
+	*/
+	
+	//순서1. 사이트 방문자에게 현재 월을 입력받아 mon변수에 저장
+	
+	let mon = prompt("현재 몇 월인지 숫자만 입력해주세요.");
+	
+	//순서2. 입력받은 월에 따라 각각 다른 문장을 출력시킵니다.
+	// if else if else 전체 구문을 사용해서 작성
+	
+
+	if(mon >= 9 && mon <= 11 ){ //입력받은 현재 월이 9~11월 사이라면?
+		document.write("독서의 계절 가을이네요!!");
+	}
+	
+	else if(mon >= 6 && mon <= 8){ //입력받은 현재 월이 6~8월 사이라면?
+		document.write("여행가기 좋은 여름이네요!!");
+	}
+	
+	else if(mon >= 3 && mon <= 5){ //입력받은 현재 월이 3~5월 사이라면?
+		document.write("햇살 가득한 봄이네요!!");
+	}
+	
+	else { //그 밖의 월을 입력했다면?
+		document.write("스키의 계절 겨울이네요!!");
+	}
+
+	
+	</script>
+
+
+</body>
+</html>

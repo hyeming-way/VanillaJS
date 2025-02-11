@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script>
+		let x = 5;
+		let y = x++  +  ++x; 
+		// x++ 현재 x변수에 저장된 값 5를 먼저 사용. 5 + ++x
+		// ++x를 하기 전 x++에 의해서 x는 6이 됨
+		// ++x에 의해 6이 저장되었던 x값이 7이 됨
+		// 5 + 7을 연산하여 y에 12가 대입됨.
+		
+		document.write(y, "&nbsp;", x, "<br>"); // 12 7
+
+		
+		
+	
+	</script>
+</body>
+</html>

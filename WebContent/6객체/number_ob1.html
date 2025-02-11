@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Number객체 메모리 생성 방법
+		//-> 숫자를 변수에 저장시키면 된다.
+		//   예)  let num = 3.456;
+	
+		let num1 = 3.456789;
+		
+		let num3 = "30.5px";
+		let num4 = 40;
+		
+		//num4변수의  Number객체메모리에저장된 40값을 반환
+		document.write( num4.valueOf(), "<br>");
+		
+		
+	    //num1변수에 저장된 값 3.456789 숫자를 문자열 "3.456789"로 변환해서 반환함
+		document.write(num1.toString() , "<br>");
+		
+		
+		//num1변수에 저장된 값 3.456789를  전달한 고정 소수점 자리만큼만 반올림하여 표기합니다.
+		//소수점 둘쨰자리까지 반올림되어 다음과 같이 표기됩니다.
+		//3.456789에서 소수점 셋째자리에서 반올림하여 3.46으로 만들어 반환.
+		document.write( num1.toFixed(2) , "<br>");//3.46
+		
+	//------------------------------------------------------------------
+	/*
+		let num3 = "30.5px";
+		let num4 = 40;
+	*/
+	
+	    //num3변수에 저장된 "30.5px"문자열에서 실수만 추출해서 30.5를 반환
+	    //num4변수에 저장된 값 40과 더합니다.
+		document.write(  parseFloat(num3) 	   +    num4 , "<br>");
+		//				 paeseFloat("30.5px")  +    40   , "<br>"
+		//						 30.5          +    40   , "<br>"
+		//						 			 70.5
+	
+		//Number객체 메모리 내부에 만들어져 있는 메소드가 아니라~
+		//함수로 만들어진 함수 parseInt함수를 호출해보자
+		
+		//num3변수에 저장된 "30.5px" 문자열에서 정수30숫자만 추출해서 반환
+		document.write(  parseInt(num3)  ,"<br>");
+	
+	     //num3변수에 저장된 "30.5px" 문자열을 parseInt함수를 호출할때 매개변수로 전달하면
+	    //정수 30숫자를 반환하고,  num4변수에 저장된 40과 더해 보자
+	    //최종 70이 출력되는지 보자
+		document.write(  parseInt(num3) + num4  ,"<br>");
+		
+	
+	
+	</script>
+</body>
+</html>
+
+
+
+
+
+

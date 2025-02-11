@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<script>
+	
+	/*
+		문제 : while반복문을 사용하여 숫자 1부터 30까지 숫자중에서 
+		2의 배수이면서 6의 배수인 숫자만 반복해서 출력
+	*/
+	
+	let i = 1;
+	
+	while(i <= 30){ //조건식1
+		if(i % 2 === 0 && i % 6 === 0){	//조건식2
+			
+			document.write("", i, "\t"); //()안에는 문자열 형태로만 입력해야함. 
+										 // i가 정수이기때문에 문자열 형태로 변환시켜주어야 함.
+										 // \t는 tap의 효과를 줌.(띄어쓰기)
+		}
+		
+		i++; //증감식
+	}	
+
+	
+	</script>
+
+</body>
+</html>
