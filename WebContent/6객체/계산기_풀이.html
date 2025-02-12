@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+	<style>
+	
+		table{
+			text-align: center;
+			width: 400px;
+			height: 400px;
+		}
+		
+		input{
+			width: 100%;
+			height: 100%;
+			font-size: 25px;
+		}
+		
+	</style>
+	
+	<!-- CDN을 사용한 예시(웹 환경) Math.js 라이브러리 사용 (가장 안전하고 강력한 방법) -->
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/mathjs/11.11.0/math.min.js"></script>
+	
+	
+
+	<script>
+	
+
+		function calculate(experssion) {
+
+			//new Function(...)은 새로운 함수를 만드는 방법		
+			//return ${experssion} -> 이 부분은 사용자가 입력한 문자열을 함수코드로 변환합니다.
+			//						만약 experssion매개변수값이 '1+2'라면, 3으로 계산하여 반환합니다.
+			//(); -> 생성된 함수를 즉시 호출하여 실행시키는 구문
+			return new Function(`return ${experssion}`)();
+			//'1+2'
+			//  3
+		}
+		
+
+		//아래의 버튼 중 하나를 클릭하면
+		//클릭한 버튼의 데이터를 매개변수로 받아서 계산하여
+		//<input type="text">에 보여주는 renew함수 만들기
+		function renew(item) {
+
+			//각 버튼을 클릭하면 데이터가 보여질 화면 또는 계산된 결과값을 보여줄 화면 선택해서 얻는다
+			//id속성에 부여된 값이 "data"인 <input>을 선택해서 가져와 data변수에 저장
+			let data = document.getElementById("data");
+
+			//'clear'버튼을 클릭했다면?
+			//<input id="data" name="data2" readonly> 빈 공백을 value속성에 넣어
+			//입력되어보이는 정보를 없애주자
+			if (item === 'clear') {
+				
+				data.value = "";
+
+			}//if
+
+			//'=' 버튼을 클릭했다면?
+			else if (item === '=') {
+
+				/*
+					방법1. eval함수 이용 (비추천, 보안에 취약함)
+					예) eval('1*10');처럼 작성되면
+					자바스크립트 eval함수는 매개변수로 전달받은 문자열 수식을 계산하여 
+					계산된 결과값을 숫자타입으로 반환해주는 함수입니다.
+				 */
+				// data.value = eval(data.value);
+				/*
+					방법2. Math.js 라이브러리를 function함수로 만들어 사용 (가장 안정적이고 강력한 방법)
+				 */
+				//함수기능 : 문자열로 된 수식을 매개변수로 받아서 실제 계산을 수행한 후 결과값을 반환하는 함수
+					data.value = calculate(data.value);
+
+			}//else if	
+
+			//이외 다른 수식버튼 중 하나를 클릭했다면?		
+
+			else { //'clear'와 '='가 아니라면?
+
+				data.value += item;
+
+			}//else
+
+		};//renew
+	</script>
+	
+	
+
+	<table border="1";>
+		
+		<tr>
+			<td colspan="4">
+			<input id="data" name="data2" readonly>
+			</td>
+		</tr>
+		
+		<tr>
+			<td><input type="button" value="1" onclick="renew(1)"></td>
+			<td><input type="button" value="2" onclick="renew(2)"></td>
+			<td><input type="button" value="3" onclick="renew(3)"></td>
+			<td><input type="button" value="+" onclick="renew('+')"></td>
+			
+		</tr>
+		
+		<tr>
+			<td><input type="button" value="4" onclick="renew(4)"></td>
+			<td><input type="button" value="5" onclick="renew(5)"></td>
+			<td><input type="button" value="6" onclick="renew(6)"></td>
+			<td><input type="button" value="-" onclick="renew('-')"></td>
+		</tr>
+		
+		<tr>
+			<td><input type="button" value="7" onclick="renew(7)"></td>
+			<td><input type="button" value="8" onclick="renew(8)"></td>
+			<td><input type="button" value="9" onclick="renew(9)"></td>
+			<td><input type="button" value="*" onclick="renew('*')"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2"><input type="button" value="0" onclick="renew(0)"></td>
+			<td><input type="button" value="." onclick="renew('.')"></td>
+			<td><input type="button" value="/" onclick="renew('/')"></td>
+		</tr>
+		
+		<tr>
+			<td colspan="2"><input type="button" value="=" onclick="renew('=')"></td>
+			<td colspan="2"><input type="button" value="clear" onclick="renew('clear')"></td>
+		</tr>
+		
+	
+		
+	
+	
+	</table>
+
+
+
+</body>
+</html>

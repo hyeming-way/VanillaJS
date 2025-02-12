@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<form name="frm1">
+		<label for="uname">이름</label>
+		<input type="text" id="uname" name="uname" value="김길동">
+		
+		<label for="age">나이</label>
+		<input type="text" id="age" name="age" value="">
+		
+		<select id="gender" name="gender">
+			<option value="male">male</option>
+			<option value="female">female</option>
+		</select>
+		
+		<button type="submit">전송</button>
+	</form>
+	
+	
+	<script>
+		//1. document.frm1
+		// -> document객체의 하위 <form>태그들 중에서 name속성값이 frm1인 
+		//	  <form>...</form>선택해옴
+		
+		//2. document.frm1.elements
+		// -> <form>...</form>내부에 작성된 하위 입력할 수 있는 태그들을
+		//	    모두 HTMLFormControlscollection배열에 담아 배열자체를 반환해줍니다.
+		
+		const HTMLFormControlsCollection_ = document.frm1.elements;
+		
+		//0index위치에 저장된 자식 아래의 요소노드를 선택해옵니다.
+		const HTML1 = HTMLFormControlsCollection_[0];
+		//<input type="text" id="uname" name="uname" value="김길동">
+		
+		const HTML2 = HTMLFormControlsCollection_['uname'];
+		//<input type="text" id="uname" name="uname" value="김길동">
+		
+		//documnet.frm1
+		// -> <form>...</form>
+		
+		//documnet.frm1.uname;
+		
+		//<form>...</form>내부의 name속성이 uname인 태크를 최종 선택
+		//<input type="text" id="uname" name="uname" value="김길동">
+		const input1 = document.frm1.uname;
+		
+		//name속성값이 frm1인 <form></form>을 먼저 선택하고
+		//그 안에 작성되어 있는 하위 태그를 선택해오는데
+		//name속성값이 age인 태그를 최종 선택해와서 input2상수에 저장
+		const input2 = document.frm1.age;
+		
+		//document.forms속성을 호출하면
+		//작성되어 있는 <form>...</form>태그를 배열에 담아 선택해오는데
+		//<form></form>태그는 0 인덱스위치 배열에 저장되어 있으므로
+		//document.forms[0]를 이용해서 정확히 선택해옵니다.
+		//정확히 선택해온 <form></form>사이에 작성된 하위 태그들 중에서
+		//name속성값이 gender인 자식요소를 가져오자
+		const selectElement = document.frm1[0].gender;
+		/*
+		<select id="gender" name="gender">
+			<option value="male">male</option>
+			<option value="female">female</option>
+		</select>
+		*/
+		
+		//선택된 option요소의 value속성의 값 가져오기
+		const selectValue = selectElement = selectElement.value;
+		
+		console.log(selectValue);
+		
+		
+		
+	
+	</script>
+
+
+</body>
+</html>

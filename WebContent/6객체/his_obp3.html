@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>세번째 페이지(his_obp3.html페이지화면)</h1>
+
+
+	<!-- 
+		history객체의 go()메소드 호출시
+		매개변수로 -1을 집어넣으면 이전 방문했던 1단계 이전페이지(his_obp2.html)를 재요청해서 같은 브라우저 창화면에 보여줌
+		
+		만약 -2를 집어넣으면 이전에 한번이라도 방문했던 2단계 이전페이지(his_obp1.html)를 재요청해서 같은 브라우저 창화면에 보여줌
+	 -->
+	 
+	<button onclick="history.go(-1);">1단계 이전 페이지</button> <br>
+	<button onclick="history.go(-2);">2단계 이전 페이지</button> <br>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<p id="text">text</p>
+	
+	<script>
+		
+		//<p id="text">text</p> 요소노드 한 쌍 선택해서 pEl상수에 저장
+		const pEl = document.getElementById("text");
+		
+		// 문법
+		// 	요소노드선택.style.css속성명=속성값;
+		pEl.style.color="red"; //text 텍스트노드의 색상을 빨강으로 설정
+		
+		
+		
+		//<p id="text">text</p> 요소노드 한 쌍 선택해서 pEl2상수에 저장
+		const pEl2 = document.querySelector("p");
+		pEl2.style.backgroundColor="#ff0000"; //배경색 빨강색으로 설정
+		
+		pEl2.style.fontSize="20px"; //텍스트 크기를 20px로 설정
+		
+		pEl2.style.color="#ffffff"; //텍스트 색상을 흰색으로 설정 
+		
+		
+		
+	
+	</script>
+	
+	
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+	/*
+		window객체의 setInterval()메소드, clearInterval()메소드
+		
+			setInterval()메소드
+			- 일정한 시간 간격으로 실행문을 반복하여 실행시킬 때 사용하는 메소드
+			    즉, 일정한 시간 간격으로 자동으로 사진이 바뀌는 사진첩을 만든다거나 
+			    자동으로 흐르는 슬라이드 배너를 만들 때 사용함
+			    
+			- 기본 사용 문법
+				let 참조변수 = window.setInterval("실행문", 일정한 시간 간격의 값);
+	
+				let t = window.setIterval(i++, 3000); 3초 휴식 후 i변수의 값 1증가 <- 무한반복
+	
+				
+				
+			clearInterval()메소드		
+			- setInterval()메소드를 사용하여 일정한 시간간격으로 계속 반복해 실행되는
+			  setInterval()메소드를 웹브라우저 메모리에서 제거해서 취소하고자 할 때 사용되는 메소드
+			    즉, 자동으로 바뀌는 사진첩을 멈추고자 할 때 사용함
+			    
+			- 기본 사용 문법   
+				window.clearInterval(참조변수전달);
+				
+				window.clearInterval(t);
+				//t참조변수에 저장되어 있던 setInterval()메소드 제거함
+	*/
+	
+		let i = 0;
+		
+		// 3초 간격으로 실행문(i++)를 반복해서 무한 수행
+		let auto = window.setInterval("console.log(i++);", 3000);
+	
+	</script>
+	
+	
+	
+	
+	
+	<button onclick="clearInterval(auto);">정지 버튼</button>
+	
+	
+
+</body>
+</html>

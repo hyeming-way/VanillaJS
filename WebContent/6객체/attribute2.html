@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style>
+		.red-color{ color:red; }
+	
+	</style>
+
+</head>
+<body>
+
+	<a href="http://www.naver.com" data-link="네이버">네이버</a>
+	
+	<script>
+	
+		/*
+			getAttribute메소드와 setAttribute메소드는
+			모든 속성의 상위 메소드라서
+			classList속성이나 dataset속성으로 하는 조작을 모두 할 수 있습니다.
+		*/
+	
+		const aEl = document.querySelector("a");
+		
+		aEl.setAttribute("data-link", "네이버2");
+		aEl.setAttribute("class", "red-color");
+		//<a href="http://www.naver.com" data-link="네이버2" class="red-color">네이버</a>
+	
+		
+		//모든 내용을 네이버->구글로 바꾸기
+		aEl.setAttribute("data-link", "구글");
+		aEl.setAttribute("href", "http://www.google.com");
+		aEl.innerText = "구글";
+		//<a href="http://www.google.com" data-link="구글">구글</a>
+		
+		
+		
+	
+	</script>
+
+</body>
+</html>

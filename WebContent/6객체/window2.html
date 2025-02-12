@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- <button></button> 태그에 클릭하는 행위(클릭이벤트) 등록 -->
+	<button onclick="printInfo();">버튼</button>
+
+	<script>
+	
+	//기능 : 사이트 이용자가 위 작성해 놓은 <button>버튼</button>을 한번 클릭하면
+	//	       호출되는 함수로 window객체에서 제공해주는 속성들을 호출하여
+	//	       윈도우창 하나에 대한 정보를 제공하는 기능을 가진 함수
+	function printInfo(){
+		
+		document.write(`웹 브라우저 창 너비: ${window.innerWidth}<br>`);
+		document.write(`웹 브라우저 창 높이: ${window.innerHeight}<br>`);
+		
+		document.write("웹브라우저 창 위쪽 면과 모니터 사이의 간격 : " + window.screenTop + ", " + window.screenY + "<br>");
+		
+		document.write("웹브라우저 창 왼쪽 면과 모니터 사이의 간격 : " + window.screenLeft + ", " + window.screenX + "<br>");
+		
+		document.write("웹브라우저 창의 스크롤 막대바가 위치한 가로 위치값 : " + window.scrollX + "<br>");
+		
+		document.write("웹브라우저 창의 스크롤 막대바가 위치한 세로 위치값 : " + window.scrollY + "<br>");
+	}
+	
+	</script>
+
+</body>
+</html>

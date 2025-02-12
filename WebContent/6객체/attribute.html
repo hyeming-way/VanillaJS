@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<a href="http://www.naver.com">네이버</a>
+	<br>
+	<h1 id="hi">안녕</h1>
+	<br>
+	<p class="p1" id="p2">안녕하세요 반갑습니다</p>
+	<br>
+	<h2 class="red-color" id="h">안녕2</h2>
+	
+	
+	
+	<script>
+	
+		//주제1. 선택한 요소노드의 속성을 삭제
+		const h2 = document.querySelector(".red-color");
+		
+		h2.removeAttribute("id");
+		//<h2 class="red-color">안녕2</h2>
+		
+		
+		
+		//주제2. 속성과 같이 저장된 값을 변경
+		const p = document.getElementsByTagName("p")[0];
+		//<p class="p1" id="p2">안녕하세요 반갑습니다</p>
+		
+		p.setAttribute("id", "p1");
+		//<p class="p1" id="p1">안녕하세요 반갑습니다</p>
+		
+		
+		
+		//주제3. 속성에 설정된 값 얻기
+		console.log(document.querySelector("#hi").getAttribute("id")); //id속성이 hi으로 된 값을 가져옴
+		//<h1 id="hi">안녕</h1> 요소노드를 선택해서 가져와
+		//getAttribute메소드 호출시 값이 저장된 속성명인 id속성명을 매개변수로 전달하면
+		//id속성의 값 "hi"을 반환한다.
+		
+		
+		
+		//<a href="http://www.naver.com">네이버</a>　요소노드를 선택해서 가져와
+		//aEl 상수에 저장
+		//"네이버"를 "구글"로 변경
+		const aEl = document.querySelector("a");
+		aEl.innerText = "구글";
+		////<a href="http://www.naver.com">구글</a>
+		
+		const href = aEl.getAttribute("href");
+		console.log(href); //"http://www.naver.com"
+		
+		
+		
+		
+		
+	
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Insert title here</title>
+	</head>
+	<body>
+		<h1 id="title">title</h1>
+		<p class="text">text-1</p>
+		<p class="text">text-2</p>
+		
+		<script>
+		
+			//id속성에 부여한 값이 title과 일치하는 <h1> DO를 선택해서 반환
+			//getEelementById("title");
+			const el = document.getElementById("title");
+			console.log(el); //<h1 id="title">title</h1>
+			
+			
+			//class속성에 부여한 값이 text와 일치하는 모든 요소들을 배열에 담아서 배열자체를 반환
+			const classEl = document.getElementsByClassName("text");
+			console.log(classEl); //[<p class="text">text-1</p>, <p class="text">text-2</p>]
+								  //			0								1
+			
+			console.log(classEl[0]); //<p class="text">text-1</p>
+			console.log(classEl[1]); //<p class="text">text-2</p> 
+					
+			
+			//메소드 호출시 요소노드명 p(태그명p)을 매개변수로 전달하면
+			//p와 일치하는 모든 p요소들을 배열에 담아 선택해 옵니다.
+			//[<p class="text">text-1</p>, <p class="text">text-2</p>]
+			//			0								1
+			const tagEls = document.getElementsByTagName("p");
+			console.log(tagEls);
+			
+			console.log(tagEls[0]); //<p class="text">text-1</p>
+			console.log(tagEls[1]); //<p class="text">text-2</p>
+			
+			
+				
+		
+		</script>
+	
+	
+	</body>
+</html>

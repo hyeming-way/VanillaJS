@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<script>
+		
+		//document객체(getElement.html문서객체)아래에 작성된
+		//DO중 첫번째로 작성된 <!DOCTYPE html>노드를 선택해서 반환
+		console.log(document.firstChild); //<!DOCTYPE html>
+		
+		
+		//document객체 아래에 작성된
+		//DO 중에서 첫번째로 작성된 <html>요소노드를 선택해서 반환
+		console.log(document.firstElementChild); //<html>....</html>
+
+		
+		//1.document.childNodes속성을 호출하면
+		//getElement.html웹문서 내부에 작성된 모든 첫 자식 노드들을
+		//새로운 NodeList배열에 담아 NodeList배열 자체를 반환합니다.
+		//["<DOCTYPE html>", "<html>....</html>"]
+		//			0				  1
+		
+		
+		//2. .firstElementChild속성을 호출하면
+		//<html></html> 내부에 작성된 첫번째로 작성된 자식요소노드인
+		//<head></head>자식요소노드를 반환
+		
+		
+		//3. .firstElementChild속성을 다시한번더 호출하면
+        //   <head></head> 내부에 작성된 첫번째 <meta chatset=utf-8> 자식 요소노드 선택
+	  		
+        
+        //4. .nextElementSibling 속성을 호출하면
+        // <meta chatset=utf-8> 다음에 작성한 다음요소노드인?
+        // <title>Insert title here</title>요소노드 최종 선택
+		
+        
+		console.log(document.childNodes[1]		 	//<html>...</html>
+							.firstElementChild	 	//<head>...</head>
+							.firstElementChild 		//<meta charset="UTF-8">
+							.nextElementSibling);	//<title>Insert title here</title>
+		
+		//체이닝기법?	메소드를 고리처럼 줄줄이 엮어서 메소드를 계속해서 사용할 수 있게끔 하는 방법.
+				
+				
+				
+				
+				
+/*  Document Object Model (HTML 문서를 브라우저가 해석하여 만든 객체 모델입니다.)
+					  	  ( HTML 문서가 트리 구조(Tree Structure)로 표현)
+					
+	<!DOCTYPE html>			   						   <html></html>
+												    		|
+						  		       <head></head>				   <body></body>
+								
+									         |
+				      <meta charset="UTF-8">  <title></title>
+*/
+
+	
+	</script>
+	
+
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<p>text 1</p>
+	<a href="http://www.gilbut.co.kr">길벗</a>
+	<a href="http://www.google.co.kr">구글</a>
+	
+	<script>
+	
+		//<p>text 1</p>요소노드 선택
+		const pEl = document.querySelector("p");
+		
+		//p요소노드 삭제
+		//pEl.parentNode속성을 호출하면
+		//p태그의 부모요소인 <body>...</body>를 선택해서 가져옴
+		
+		//pEl상수에 저장된 자식요소노드 <p>...</p>에 접근해서 삭제
+		//방법	부모노드선택.removeChild(삭제할 자식요소노드 선택);
+		pEl.parentNode.removeChild(pEl);
+		/*
+		<body>
+			<a href="http://www.gilbut.co.kr">길벗</a>
+			<a href="http://www.google.co.kr">구글</a>
+		</body>
+		*/
+		
+	
+	</script>
+	
+
+</body>
+</html>

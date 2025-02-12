@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+
+	function day(){
+		
+		let today = new Date();
+		
+		let year = today.getFullYear();
+		
+		let month = today.getMonth() + 1;
+		
+		let date = today.getDate();
+		
+		let hours = today.getHours();
+		
+		let minutes = today.getMinutes() 
+		
+		let seconds = today.getSeconds();
+		
+		return console.log(`${year}년 ${month}월 ${date}일 ${hours}시 ${minutes}분 ${seconds}초`);
+		
+	}
+	
+	let auto = window.setInterval(day, 1000);
+
+	</script>
+
+
+
+</body>
+</html>

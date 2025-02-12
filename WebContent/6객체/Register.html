@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		#join, #button {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		
+	
+	</script>
+	
+	
+	
+	<form id="signupForm" method="post">
+		<table border="1";>
+			<tr>
+				<td colspan="2" name="join" id="join">회원가입</td>
+			</tr>
+			<tr>
+				<td name="name">이름</td>
+				<td>
+					<input type="text" name="name" maxlength="5" required>
+				</td>
+			</tr>
+			<tr>
+				<td name="id">ID</td>
+				<td>
+					<input type="text" name="id">
+				</td>
+			</tr>
+			<tr>
+				<td name="pw">비밀번호</td>
+				<td>
+					<input type="password" name="pw">
+				</td>
+			</tr>
+			<tr>
+				<td name="pwRe">비밀번호 확인</td>
+				<td>
+					<input type="password" name="pwRe">
+				</td>
+			</tr>
+			<tr>
+				<td name="jop">직업</td>
+				<td>
+					<select>
+						<option value="none">직업명</option>
+						<option value="other">기타</option>
+						<option value="worker">회사원</option>
+						<option	value="student">학생</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td name="gender">성별</td>
+				<td>
+					<label>남자<input type="radio" name="gender" value="male"></label>
+					<label>여자<input type="radio" name="gender" value="female"></label>
+				</td>
+			</tr>
+			<tr>
+				<td name="hobby">취미</td>
+				<td>
+					<label><input type="checkbox" value="reading">독서</label>
+					<label><input type="checkbox" value="hiking">등산</label>
+					<label><input type="checkbox" value="fishing">낚시</label>
+				</td>
+			</tr>
+			<tr>
+				<td name="joinRea">가입동기</td>
+				<td>
+					<textarea rows="5" cols="30px" name="joinRea"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" id="button">
+					<button type="submit" name="submit">가입</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

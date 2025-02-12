@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<style>
+.error-message {
+	color: red;
+	font-size: 12px;
+	margin-left: 10px;
+}
+</style>
+</head>
+<body>
+	<form id="signupForm" action="a.jsp"> <!-- action="전송할 경로" -->
+		<table border="1" align="center">
+			<tr>
+				<td colspan="2" align="center">회원가입</td>
+			</tr>
+			<tr>
+				<td>*이름</td>
+				<td><input type="text" id="uName" /> <span id="uNameError"
+					class="error-message"></span></td>
+			</tr>
+			<tr>
+				<td>*ID</td>
+				<td><input type="text" id="uID" /> <span id="uIDError"
+					class="error-message"></span></td>
+			</tr>
+			<tr>
+				<td>*비밀번호</td>
+				<td><input type="password" id="uPWD" /> <span id="uPWDError"
+					class="error-message"></span></td>
+			</tr>
+			<tr>
+				<td>*비밀번호 확인</td>
+				<td><input type="password" id="uPWD_Confirm" /> <span
+					id="uPWDConfirmError" class="error-message"></span></td>
+			</tr>
+			<tr>
+				<td>*직업</td>
+				<td><select id="work">
+						<option value="">직업명</option>
+						<option value="기타">기타</option>
+						<option value="회사원">회사원</option>
+						<option value="학생">학생</option>
+				</select> <span id="workError" class="error-message"></span></td>
+			</tr>
+			<tr>
+				<td>*성별</td>
+				<td>남자 <input type="radio" name="sex" value="male" /> 여자 <input
+					type="radio" name="sex" value="female" /> <span id="sexError"
+					class="error-message"></span>
+				</td>
+			</tr>
+			<tr>
+				<td>*취미</td>
+				<td><input type="checkbox" name="hobby" value="독서" />독서 <input
+					type="checkbox" name="hobby" value="등산" />등산 <input type="checkbox"
+					name="hobby" value="낚시" />낚시 <span id="hobbyError"
+					class="error-message"></span></td>
+			</tr>
+			<tr>
+				<td>*가입동기</td>
+				<td><textarea id="motivation"></textarea> <span
+					id="motivationError" class="error-message"></span></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+					<button type="submit">가입</button>
+				</td>
+			</tr>
+		</table>
+	</form>
+	
+	<script>
+		/*
+			선택한 요소에 특정 이벤트 종류를 등록하고
+			특정 이벤트가 발생했을 때 이벤트 처리함수를 작성하는 문법
+			
+				요소선택.addEventListener( '등록할 이벤트 종류명', 이벤트를 처리할 function(){} );
+		*/
+		//<form id="signupForm">...</form>를 가져와서 .addEventListener('전송이벤트', 이벤트 처리할 함수);
+		document.getElementById("signupForm").addEventListener('submit', function(event){ //가입버튼을 눌렀을 때의 행위 등록
+		
+			//가입버튼을 눌렀을 때 <form action="a.jsp"> a.jsp 전송 차단
+			//유혀성 검사를 위해 먼저 <form>에 의한 a.jsp 전송 차단시키기
+			event.preventDefault(); //함수 앞 부분에 적어야 함!!!
+			
+			//오류메세지가 이미 표시된 경우 이를 지우기 위해 모든 오류메세지 내용을 초기화하는 코드 작성
+			//class="error-message"인 모든 <span>요소를 선택해서 배열에 담아 가져옵니다.(span 8쌍)
+			document.querySelectorAll(".error-message").forEach(function(el){
+			
+			el.textContent = ""; //오류메세지를 초기화하는 구문
+			
+			});//오류메세지 닫는 문
+			
+			//모든 입력값이 유효한지 체크할 변수(기본값 true, 만약 오류가 있으면 false로 바뀌게 됨)
+			let isValid = true;
+			
+			//<form>사이에 있는 각 입력값을 얻어 변수에 저장
+			//참고. String객체의 trim()메소드는 입력값 앞 뒤에 빈 공백을 제거한 문자열을 반환하는 메소드이다.
+			
+				//이름 입력하는 <input>을 선택해서 입력한 값 얻기
+				const uName = document.getElementById("uName").value.trim();
+				//아이디 입력하는 <input>을 선택해서 입력한 값 얻기
+				const uID = document.getElementById("uID").value.trim();
+				//비밀번호 입력하는 <input>을 선택해서 입력한 값 얻기
+				const uPWD = document.getElementById("uPWD").value.trim();
+				//비밀번호 확인 입력하는 <input>을 선택해서 입력한 값 얻기
+				const uPWD_Confirm = document.getElementById("uPWD_Confirm").value.trim();
+				
+				//직업을 선택하는<select>를 선택해서 사용자가 선택한 option중 하나의 value 속성값 얻기
+				const work = document.getElementById("work").value;
+				
+				//성별을 선택하는 라디오버튼 중 선택(체크)된 하나의 라디오만 가져오기
+				const sex = document.querySelector("input[name='sex']:checked"); // : <--필터선택자
+				
+				//취미를 선택하는 체크박스들 중 선택(체크)된 체크박스만 가져오기
+				const hobbies = document.querySelectorAll("input[name='hobby']:checked");
+				
+				//가입동기 <taxtarea>에 입력한 여러중 정보 얻기
+				const motivation = document.getElementById("motivation").value.trim();
+			
+			//유효성 검사 실패시 오류 메세지를 출력하는 함수
+			function showError(id, message){
+				
+				//id매개변수로 전달받은 id속성값이 uNameError인 <span>을 선택해서 가져와
+				//message매개변수로 전달받은 "이름을 입력해주세요"문자열을 텍스트노드 위치에 설정
+				document.getElementById(id).textContent = message; //.textContent 사용하면 <span>사이에 문자열이 추가됨.
+				
+				//오류가 발생하면 isValid를 false로 설정, <form>태그의 전송 이벤트를 막기 위해
+				isValid = false;
+				
+			}
+			//유효성 검사 : 이름이 비어있는지 확인
+			if(uName === ""){
+				
+				showError(uNameError, "이름을 입력해주세요");
+				
+			}
+			
+			
+		});//가입버튼 누를 시
+	
+
+
+	</script>
+
+
+</body>
+</html>

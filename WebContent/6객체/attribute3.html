@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<a href="#" class="fz20">link</a>
+	
+	<script>
+	
+		const aEl = document.querySelector("a");
+		//a요소의 기존 class속성은 보존하면서 값만 삭제
+		//aEl.classList.remove("fz20");
+		//결과 -> <a href="#" class>link</a>
+		
+		
+		//a요소의 기존 class속성과 값을 같이 삭제
+		//aEl.removeAttribute("class");
+		//결과 -> <a href="#">link</a>
+		
+		
+		//a태그의 기존 class속성값 fz20을 보존하면서 red-color class속성값 추가
+		//aEl.classList.add("red-color");
+		//결과 -> <a href="#" class="fz20 red-color">link</a>
+		
+		
+		//a태그의 기존 class속성값 fz20을 보존하지않고 red-color값으로 변경
+		//aEl.setAttribute("class", "red-color");
+		//결과 -> <a href="#" class="red-color">link</a>
+		
+		
+		
+		/*
+		classList속성과 setAttribute메소드
+		- classList속성으로 class속성값을 추가하거나 삭제하면 
+		    기존 요소가 가지고 있던 class속성값을 보존하면서 추가하거나 삭제한다는 특징이 있습니다.
+		    
+		classList속성과 removerAttribute메소드
+		- classList속성
+		*/
+		
+		
+		
+		
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script>
+	
+		//기존에 없던 <a></a>요소노드 생성하기
+		const aEl = document.createElement("a"); //<a></a>
+		//		  = "<a></a>"  <--- 이렇게 써도 됨
+		
+		//<body</body>요소 노드 사이에 자식<a>요소노드를 추가하기 위해
+		//1. <body></body>요소 노드를 선택해서 가져와서
+		//		문법		부모요소노드명.자식요소노드명
+		//			-> 자식요소노드 최종 선택해 올 수 있다.
+		//				document.body
+		//				<body></body>
+		document.body.appendChild(aEl);
+		/*
+			<body>
+				<a></a>
+			</body>
+		*/
+		
+		
+		//생성한 a요소노드에 추가할 텍스트노드("길벗")을 만들어서 txtEl 상수에 저장
+		const txtEl = document.createTextNode("길벗") //"길벗"
+		
+		//위 동적으로 생성한 <a></a>요소 노드를 선택해서 동적으로 생성한 "길벗" 텍스트 노드를
+		//appendChild메소드를 호출하여 자식 노드 위치에 추가
+		document.querySelector("a").appendChild(txtEl); 
+		/*
+		<body>
+			<a>길벗</a>
+		</body>
+		*/
+		
+		
+		//a요소노드에 href속성노드를 동적으로 생성
+		const hrefAttr = document.createAttribute("href"); // "href"
+		
+		//동적으로 만든 href속성에 주소값을 저장
+		//문법	속성명.value = 저장할 주소값;
+		hrefAttr.value = "http://www.gilbut.co.kr"; //href = "http://www.gilbut.co.kr";
+		
+		//동적으로 만든 <a>길벗</a>요소노드를 선택해서 가져와
+		//href속성과 주소값을 한번에 추가
+		document.querySelector("a").setAttributeNode(hrefAttr);
+		/*
+		<body>
+			<a href="http://www.gilbut.co.kr">길벗</a>
+		</body>
+		*/
+		
+		
+		
+		
+	
+	</script>
+
+
+</body>
+</html>

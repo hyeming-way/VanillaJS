@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- css문법으로 미리 스타일 정의해놓자 -->
+	<style>
+		.red-color {
+			color:red;
+		}
+		
+		.fz20 {
+			font-size:20px;
+		}
+	</style>
+	
+</head>
+<body>
+	
+	<p id="text">text</p>
+	
+	<script>
+		
+	/*
+		const pEl = document.querySelector("p");
+		
+			pEl.style.color = "red"; //글자 색상 빨강
+			pEl.style.fontSize = "20px"; //글자 크기 설정
+			pEl.style.fontWeight = "bold"; //글자 굵기 굵게
+			pEl.style.lineHeight = "1"; //줄간격
+			
+			//style속성으로 스타일 조작하면 한줄에 속성에 대한 값 설정을 따로따로 설정해야해서 불편하다.
+	*/	
+	
+	//참고. 자바스크립트 구문으로 class속성을 조작해 스타일을 적용시킬 수 있다.
+	//선택한 요소노드에 class속성을 지정할 때(추가, 삭제, 추가와 삭제 반복할때)
+	//classList속성의 add(), remove(), toggle()메소드 사용
+	
+	//문법
+	//		요소선택.classList.add("class속성값"); //추가
+	//		요소선택.classList.remove("삭제할 class속성에 대한 값"); //삭제
+	//		요소선택.classList.toggle("없으면 추가할 class속성값 또는 있으면 삭제할 class속성값"); //추가 또는 삭제
+	
+		const pE1 = document.querySelector("#text");
+	
+		//pE1.classList.add("red-color"); //클래스 추가
+		//<p id="text" class="red-color">text</p>
+		
+		//pE1.classList.add("fz20"); //클래스 추가
+		//<p id="text" class="red-color fz20">text</p>
+		
+		
+		//한줄을 작성해서 red-color class속성의 값과 fz20 class속성의 값을 한번에 추가하는 방법
+		pE1.classList.add("red-color", "fz20");
+		//<p id="text" class="red-color fz20">text</p>
+		
+		//적용된 class속성에 대한 값을 삭제하고 싶을 때 classList속성의 remove()메소드를 사용
+		pE1.classList.remove("red-color", "fz20"); //삭제
+		//<p id="text" class>text</p>
+		
+		
+		//2초 간격으로 toggle메소드 반복 호출
+		window.setInterval(function(){
+			
+			pE1.classList.toggle("red-color");
+			
+		} , 2000);
+		
+	
+	
+	
+	</script>
+	
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<!-- 주제 : Array객체의 from메소드의 사용법 -->
+	
+	<script>
+	
+		//1. 유사배열객체
+		//	- 유사배열 객체는 length속성을 가지며 index번호로 요소에 접근할 수 있는 배열객체
+		const arrayLike = { 0:'a', 1:'b', 2:'c', length:3 };
+		
+		//유사배열 객체를 일반배열로 변환
+		const arr = Array.from(arrayLike);
+		//['a', 'b', 'c'] 일반 배열을 생성해서 반환
+		//  0    1    2
+		
+		console.log(arr);
+		
+		
+		
+		//2. 반복가능한 객체
+		//	- 반복가능한 객체는 Symbol.itarator메소드를 가진 객체입니다.
+		const set = new Set(['a', 'b', 'c']);
+		
+		//반복가능한 객체를 일반배열로 변환
+		const arr2 = Array.from(set); //-> ['a', 'b', 'c'] 일반배열을 반환함
+		
+		console.log(arr2);
+		
+		//결론
+		//Array객체의 from메소드를 사용하면 NodeList유사배열을 실제일반배열로 변환하여
+		//일반 배열 메서드를 사용할 수 있습니다.
+		//이를 통해 중간에 노드를 삭제하더라도 안전하게 순회할 수 있습니다.
+		
+		
+		
+		
+		
+		
+		
+	
+	</script>
+
+</body>
+</html>
