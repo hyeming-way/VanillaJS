@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<!-- 웹브라우저는 위에서 아래로 읽기때문에 <h1>태그 위쪽에 선언문을 작성하면 null값이 나옴. -->
+	
+	<script>
+		//load이벤트 : 웹브라우저 창이 event-0.html웹문서 내부에 작성된
+		//모든 HTML태그들을 읽어들인 동작(이벤트)을 말함
+		
+		//참고. load이벤트는 웹브라우저 창하나의 정보를 가지고 있는 window객체에 등록해야 합니다.
+		
+		//load이벤트를 window객체(창)에 등록하는 문법
+		//		window.onload = load이벤트가 발생했을 때 자동으로 호출되는 function(){}함수 작성
+		
+		//load이벤트를 웹브라우저 창역할(window객체)에 등록 후
+		//load이벤트가 발생했을 때 이벤트를 처리할 이벤트핸들러함수 function이 실행되게 선언
+		
+		window.onload = function(){ // <----------------------------------- ***script선언문이 위쪽에 위치했을 때 이 구문을 적어야 함.***
+			
+			//load이벤트를 처리할 코드 작성하는 곳
+				///<h1>요소를 선택해서 가져와 글자 색상을 빨강색으로 설정
+				document.querySelector("h1").style.color = "red";	
+					
+		}
+	
+	</script>
+
+</head>
+<body>
+	<h1>안녕</h1>
+	
+
+
+</body>
+</html>

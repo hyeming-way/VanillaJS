@@ -12,7 +12,8 @@
 </style>
 </head>
 <body>
-	<form id="signupForm" action="a.jsp"> <!-- action="전송할 경로" -->
+	<form id="signupForm" action="a.jsp">
+		<!-- action="전송할 경로" -->
 		<table border="1" align="center">
 			<tr>
 				<td colspan="2" align="center">회원가입</td>
@@ -56,8 +57,8 @@
 			<tr>
 				<td>*취미</td>
 				<td><input type="checkbox" name="hobby" value="독서" />독서 <input
-					type="checkbox" name="hobby" value="등산" />등산 <input type="checkbox"
-					name="hobby" value="낚시" />낚시 <span id="hobbyError"
+					type="checkbox" name="hobby" value="등산" />등산 <input
+					type="checkbox" name="hobby" value="낚시" />낚시 <span id="hobbyError"
 					class="error-message"></span></td>
 			</tr>
 			<tr>
@@ -72,7 +73,7 @@
 			</tr>
 		</table>
 	</form>
-	
+
 	<script>
 		/*
 			선택한 요소에 특정 이벤트 종류를 등록하고
@@ -82,21 +83,26 @@
 		*/
 		//<form id="signupForm">...</form>를 가져와서 .addEventListener('전송이벤트', 이벤트 처리할 함수);
 		document.getElementById("signupForm").addEventListener('submit', function(event){ //가입버튼을 눌렀을 때의 행위 등록
+																				/*
+																					<form>태그에 전송이벤트가 발생했을 때
+																					function함수의 매개변수 event로 <form>태그의
+																					정보를 지닌 Event객체가 매개변수로 전달받는다.
+																				*/
 		
 			//가입버튼을 눌렀을 때 <form action="a.jsp"> a.jsp 전송 차단
-			//유혀성 검사를 위해 먼저 <form>에 의한 a.jsp 전송 차단시키기
-			event.preventDefault(); //함수 앞 부분에 적어야 함!!!
+			//유효성 검사를 위해 먼저 <form>에 의한 a.jsp 전송 차단시키기
+			event.preventDefault(); //함수 앞 부분에 적어야 함!!! ***중요***
 			
 			//오류메세지가 이미 표시된 경우 이를 지우기 위해 모든 오류메세지 내용을 초기화하는 코드 작성
 			//class="error-message"인 모든 <span>요소를 선택해서 배열에 담아 가져옵니다.(span 8쌍)
 			document.querySelectorAll(".error-message").forEach(function(el){
 			
-			el.textContent = ""; //오류메세지를 초기화하는 구문
+				el.textContent = ""; //오류메세지를 초기화하는 구문
 			
 			});//오류메세지 닫는 문
 			
 			//모든 입력값이 유효한지 체크할 변수(기본값 true, 만약 오류가 있으면 false로 바뀌게 됨)
-			let isValid = true;
+			let isValid = true; //* 플래그변수 : 조건이 참/거짓인지 판단하는 변수
 			
 			//<form>사이에 있는 각 입력값을 얻어 변수에 저장
 			//참고. String객체의 trim()메소드는 입력값 앞 뒤에 빈 공백을 제거한 문자열을 반환하는 메소드이다.
@@ -113,7 +119,7 @@
 				//직업을 선택하는<select>를 선택해서 사용자가 선택한 option중 하나의 value 속성값 얻기
 				const work = document.getElementById("work").value;
 				
-				//성별을 선택하는 라디오버튼 중 선택(체크)된 하나의 라디오만 가져오기
+				//성별을 선택하는 라디오버튼 중 선택(체크)된 하나의 라디오만 가져오기  //input[속성=값] <-- 속성=값에 해당하는 input 가져옴
 				const sex = document.querySelector("input[name='sex']:checked"); // : <--필터선택자
 				
 				//취미를 선택하는 체크박스들 중 선택(체크)된 체크박스만 가져오기
@@ -134,19 +140,95 @@
 				
 			}
 			//유효성 검사 : 이름이 비어있는지 확인
-			if(uName === ""){
+			if(uName === ""){//이름확인
 				
-				showError(uNameError, "이름을 입력해주세요");
+				showError("uNameError", "이름을 입력해주세요");
 				
 			}
 			
+			if(uID === ""){//아이디확인
+				
+				showError("uIDError", "아이디를 입력해주세요");
+				
+			}
 			
+			else if(uID.length < 3 || uID.length > 7){ //아이디 글자수 확인 (3~7자)
+				
+				showError("uIDError", "아이디를 3 ~ 7자 사이로 입력해주세요.");
+				
+			}
+			
+			if(uPWD === ""){ //비밀번호 확인
+				
+				showError("uPWDError", "비밀번호를 입력해주세요.");
+				
+			}
+			
+			else if(uPWD.length < 4 || uPWD.length > 10){ //비밀번호 글자수 확인 (4~10자)
+				
+				showError("uPWDError", "비밀번호를 4 ~ 10자 사이로 입력해주세요.");
+				
+			}
+			
+			if(uPWD === ""){ //비밀번호 재확인
+				
+				showError("uPWDConfirmError", "비밀번호를 재입력해주세요.");
+				
+			}
+			
+			else if(uPWD !== uPWD_Confirm){ //비밀번호 재확인
+				
+				showError("uPWDConfirmError", "비밀번호를 일치하지않습니다.");
+				
+			}
+			
+			if(work === ""){ //직업확인
+				
+				showError("workError", "직업을 선택해주세요");
+				
+			}
+			
+			if(!sex){ //성별확인, !sex <-- 성별이 선택되지않았다면(false값)
+				
+				showError("sexError", "성별을 선택해주세요.");
+				
+			}
+			/*
+				참고. null은 falsy값
+				자바스크립트에서 null은 false처럼 취급되는 falsy값입니다.
+				falsy 값은  false, 0, "", null, undefined, NaN
+				
+			*/
+			
+			if(hobbies.length === 0){ //취미확인
+				
+				showError("hobbyError", "취미를 1개이상 선택해주세요.");
+				
+			}
+			/*
+				참고. hobbies상수는 사용자가 체크한 취미 체크박스들을 hobbies상수배열에 저장합니다.
+				사용자가 아무것도 체크하지않으면 hobbies.length값은 0이 됩니다.
+			*/
+			
+			if(motivation === ""){ //가입동기
+				
+				showError("motivationError", "가입동기를 적어주세요.");
+				
+			}
+			
+			//모든 입력한 값들이 유효한지 확인
+			if(isValid){ //모든 입력검사를 통과하면
+				
+				alert("회원가입 요청(a.jsp서버페이지로 요청)이 정상적으로 처리됩니다.");
+			
+				//this는 이벤트가 발생한 요소를 가리키는 예약어. 즉, <form>을 말함.
+				this.submit(); //<form>태그의 action속성에 작성된 a.jsp서버페이지로 
+							   //가입을 위해 입력한 값 모두를 전송합니다.
+				
+			}
+
 		});//가입버튼 누를 시
 	
-
-
 	</script>
-
-
 </body>
 </html>

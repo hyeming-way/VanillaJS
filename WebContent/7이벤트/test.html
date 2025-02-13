@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div id="parent" style="padding:20px; background-color:lightblue;">
+		Parent
+		<div id="child" style="padding:20px; background-color:lightcoral;">
+			child
+		</div>
+	</div>
+	
+	<script>
+		//캡쳐링 단계 이벤트 처리
+		// -> 이벤트 등록 메소드 addEventListener는 true로 설정되어 캡처링 단계에서 이벤트를 처리합니다.
+		// 	    이벤트가 child<div>요소에 도달하기 전에 parent<div>요소에 먼저 click이벤트를 처리합니다.
+		document.getElementById("parent").addEventListener('click', function(){
+			
+			alert('parent capturing');
+			
+		}, true);
+		
+		
+		
+		//버블링 단계 이벤트 처리
+		document.getElementById("child").addEventListener('click', function(){
+			
+			alert('child capturing');
+			
+		}, false);
+		
+	
+	</script>
+	
+</body>
+</html>

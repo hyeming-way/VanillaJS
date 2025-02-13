@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/modal-result.css">
+
+</head>
+<body>
+
+	<button id="open">프로필 보기</button>
+	
+	<div id="modal-box">
+		<div id="modal-contents">
+			<button id="close">&times;</button><!-- modal창의 닫기(X)영역. &times; x표시 -->
+			<h1 id="title">My Profile</h1>
+			<div id="profile">
+				<img src="images/pf.png" alt="도레미"> <!-- modal창 사진 영역 -->
+				<div id="desc">
+					<p class="user">이름 : 도레미</p>
+					<p class="user">주소 : somewhere</p>
+					<p class="user">연락처 : 1234-5678</p>
+				</div>
+			</div>
+		
+		</div>
+	
+	</div>
+	
+	
+	
+	<script>
+		//프로필 보기 <button id="open">프로필 보기</button> 선택해서 가져오기
+		const open = document.querySelector("#open");
+		
+		//<div id="modal-box"> 선택해서 가져오기
+		const modalBox = document.querySelector("#modal-box");
+		
+		//<button id="close"> 선택해서 가져오기
+		const colse = document.querySelector("#close");
+		
+		//프로필보기 버튼에 이벤트 등록하기
+		open.addEventListener('click', () => {
+			
+			//클릭하면 classList속성에 add메소드를 사용해서 
+			//class=active를 modalBox상수에 저장된 <div>에 추가
+			modalBox.classList.add("active");
+
+		});
+		
+		
+		//모달창의 닫기 버튼에 이벤트 등록하기
+		//모달창의  class속성에 대한 "active"값 제거
+		colse.addEventListener('click', () => {
+		
+			modalBox.classList.remove("active");
+			
+		});
+		
+	
+	
+	
+	
+	
+	
+	</script>
+
+
+
+</body>
+</html>

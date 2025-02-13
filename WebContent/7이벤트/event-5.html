@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/event-5.css">
+
+</head>
+<body>
+	<div id="contents">
+		<input type="text" id="word">
+		<button id="bttn">글자 수 확인</button>
+	</div>
+	<div id="result"></div>
+	
+	<script type="text/javascript">
+	
+	    //1. <button id="bttn">글자 수 확인</button> 선택해서 가져와 click이벤트 등록
+	    const button  = document.querySelector("#bttn");
+	    button.addEventListener('click', function(){
+	    	
+	    	//2. <input type="text" id="word">을 선택해 입력한 값 얻기 
+	    	const word = document.querySelector("#word").value;
+	    		//"abc"
+	    	
+	    	//2.1 입력한 문자열의 총문자 갯수 알아내기
+	    	let count = word.length;
+	    		//3
+	    	
+    		//3. 입력한 문자열의 총문자 갯수를  넣기 위한 <div id="result"></div>요소 선택
+    		const result = document.querySelector("#result");
+    		
+    		//3.1. 총문자 갯수 를    <div id="result">텍스트노드위치</div> 요소
+    		//	   텍스트 노드 위치에 넣자
+    		result.innerText = `${count}`;
+	    });
+	
+	
+	
+	</script>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+

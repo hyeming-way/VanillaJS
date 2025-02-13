@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<script>
+		//주제 : <button></button>에 두가지 방식으로 click이벤트와 mouseover이벤트를 등록시켜
+		// 		배경색이 바뀌도록 하는 예제
+		
+		//방식1. 직접 HTML요소에 이벤트를 등록하는 방식
+		//		문법		<태그명 on등록할 이벤트 종류명 = "이벤트 처리할 함수 호출;"></태그명>
+		
+		//방식2. DOM을 이용한 이벤트 등록하는 방식
+		//		문법		요소노드선택.on등록할 이벤트 종류명 = "이벤트 처리할 함수 작성";
+		
+		//배경색상 문자열들이 저장된 배열 생성
+		let color = ["white", "yellow", "aqua", "purple"];
+					//   0		 1		  2		   3
+					
+		//위 color배열의 index번호가 저장될 변수
+		let i = 0;
+		
+		//위 color배열에 배경색상 문자열을 이용해 각 <button>을 클릭할때마다 호출되어
+		//<body></body>의 배경색상을 변경하는 기능의 함수
+		function colorBg(){
+			
+			i++; //0 -> 1
+			
+			//<body></body>요소 한쌍을 선택해서 변수에 저장
+			let bodyTag = document.getElementsByTagName("body")[0]; //NodeList배열로 반환
+			
+			//선택해온 <body></body>요소 영역에 배경색을
+			//color배열에 저장된 i변수번째 index위치의 값으로 설정
+			bodyTag.style.backgroundColor = color[i];
+			
+		}
+		
+		//window객체에 load이벤트 등록
+		//웹브라우저창이 event_1.html 웹 문서 내부에 작성된 모든 HTML태그들을 읽어들인 동작(load이벤트)을 했을 때
+		//이벤트 핸들러 함수가 자동으로 호출되어 실행되게 선언
+		window.onload = function(){
+			
+			//<button id="btn2">버튼2</button>요소를 선택해서 가져와서 변수에 저장
+			let btn2 = document.getElementById("btn2");
+			
+			//<button id="btn2">버튼2</button>요소에 click이벤트 등록 후 처리 구문 작성
+			btn2.onclick = function(){colorBg();}
+			
+			//-----------------------------------------------------------------------------------
+			
+			//<button>버튼4</button>요소를 선택해서 btn4 변수에 저장
+			let btn4 = document.querySelectorAll("button")[3];
+			// [버튼1, 버튼2, 버튼3, 버튼4]
+			//   0     1     2     3
+			
+			btn4.onmouseout = function(){colorBg();}
+			
+		}
+					
+
+	</script>
+
+</head>
+<body>
+
+	<p>
+		<!-- 방식1 사용해서 이벤트 등록 -->
+		<button onclick = "colorBg();">버튼1</button>
+	</p>
+	<p>
+		<!-- 방식2 사용해서 이벤트 등록 -->
+		<button id="btn2">버튼2</button>
+	</p>
+	<p>
+		<!-- 방식1 사용해서  이벤트 등록
+			  버튼3에 마우스 포인터를 올리는 동작(이벤트)를 했을 때 colorBg()함수를 호출합니다.-->
+		<button onmouseover = "colorBg();">버튼3</button>
+	</p>
+	<p>
+		<!-- 방식2 사용해서 이벤트 등록
+			  버튼4에 마우스포인터가 올라가 있는 상태에서 마우스포인터가 벗어나는 동작(이벤트)를 했을 때
+			 colorBg()함수를 호출합니다. -->
+		<button>버튼4</button>
+	</p>
+
+</body>
+</html>

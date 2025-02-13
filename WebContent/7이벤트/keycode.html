@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	
+	<link rel="stylesheet" href="./css/main.css">
+	<style>
+	
+		/* id속성값이 result인 <div>요소 한 쌍을 선택해서 가져와 스타일 설정 */
+		#result{
+			text-align: center; /* 텍스트 중앙 정렬 */
+			font-weight: bold; /* 텍스트 굵기 굵게 */
+			font-size: 1.5em;
+			color:crimson;	
+		}
+	
+	</style>
+
+</head>
+<body>
+
+	<h1>키보드의 아무 키나 눌러보세요</h1>
+	
+	<!-- 다른 태그들을 묶을 수 있는 요소, css에서 id불러오려면 #id명 -->
+	<div id="result"></div>
+	
+	<script src="./js/keycode.js"></script>
+
+</body>
+</html>
