@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<div id="container">
+		<h1>상품 설명</h1>
+		<h2>자바스크립트의 정석</h2>
+		<p>베스트셀러입니다. 잘나갑니다.</p>
+		<button id="order">주문하기</button>	
+	</div>
+	
+	<div id="orderInfo"></div>
+	
+	<script>
+		/* ``백틱 기호와 + innerHTML속성을 사용한 요소 생성과 추가방법 
+			- 장점 : 간결한 코드로 쉽게 HTML을 추가 가능.
+				       여러개의 동적인 요소를 한번에 쉽게 추가하는데 유리하다.
+			- 단점 : innerHTML += 사용시, 기존의 innerHTML을 읽고 다시 쓰기 때문에 성능이 떨어질 수 있음
+				       기존에 만들어져 있던 요소가 많을 경우. 이벤트 처리함수가 사라질 위험이 있음
+				   (새롭게 웹브라우저가 렌더링되면서 기존 이벤트가 초기화될 가능성이 있음)
+			- 언제 사용하면 좋을까?
+					: 간단한 HTML을 동적으로 만들어 추가할 때, 코드가 간결해야 할 때 innerHTML방법 사용
+					    예)<h1>안녕</h1>
+		*/
+		
+		
+	
+		//주문정보를 보여줄 <div id="orderInfo"></div>를 선택해서 orderInfo 상수에 저장
+		const orderInfo = document.querySelector('#orderInfo');
+		
+		//<button id="order">주문하기</button>를 선택해서 orderButton 상수에 저장
+		const orderButton = document.querySelector('#order');
+		
+		//<h2>자바스크립트의 정석</h2>를 선택해서 title 상수에 저장
+		const title = document.querySelector("h2");
+		
+		//orderButton의 클릭 이벤트 등록 후 클릭이벤트가 발생했을 때 처리
+		orderButton.addEventListener('click',function(){
+			
+			//주문 정보를 보여줄 <div id="orderInfo"></div>요소의 컨텐츠 영역에
+			//동적으로 생성한 <p>요소 한 쌍을 innerHTML속성으로 추가
+			orderInfo.innerHTML += `<p style="font-size:0.8em; color:blue;">${title.innerText}</p>`;
+			
+		});
+		
+			
+			
+		
+		
+		
+		
+		
+		
+	
+	</script>
+
+</body>
+</html>

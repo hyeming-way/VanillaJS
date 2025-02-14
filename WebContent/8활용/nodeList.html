@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>노드 리스트 살펴보기</h1>
+	<p>HTML</p>
+	<p>CSS</p>
+	<p>Javascript</p>
+
+<!-- <p>"Typescript"</p> 만들기 -->
+
+	<script>
+	
+		//1. 요소 노드 만들기 - createElement()메소드
+		//문법	document.createElement("생성할요소노드명");
+		
+		//<p></p>요소 노드 생성
+		let newP = document.createElement("p");
+		
+		//2. 텍스트 노드 만들기 - createTextNode()메소드
+		//문법	document.createTextNode("생성할텍스트문자열");
+		
+		//"Typescript"텍스트노드생성
+		let textNode = document.createTextNode("Typescript");
+		
+		//3. 자식노드 연결하기 - appendChild()메소드
+		//문법	부모노드.appendChild(자식노드);
+		newP.appendChild(textNode);
+		//<p>Typescript</p>
+		
+		//4. 3번에서 만든 동적으로 생성한 <p>요소노드 전체를 
+		//기존에 작성되어 있던 <body> 부모요소노드 사이에 추가(자식노드 연결하기)
+		document.body.appendChild(newP);
+		
+		
+	
+	
+	</script>
+
+
+
+</body>
+</html>

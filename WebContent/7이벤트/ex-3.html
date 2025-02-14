@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+	<style>
+		/*id속성에 대한 값이 box인 <div>요소를 선택*/
+		#box{
+			width:200px;
+			height:200px;
+			border:1px solid #222;
+		}
+	</style>
+
+</head>
+<body>
+
+	<p>사각형 내부에서 마우스를 움직여보세요.</p>
+	
+	<div id="box"></div>
+	
+	<p id="text"></p>
+	
+	<script>
+		//id속성값이 box인 <div>요소를 선택해서 가져와 box 상수메모리 만들어서 저장
+		const box = document.getElementById("box");
+		const text = document.getElementById("text");
+		
+		//선택해온 <div>요소에 click 이벤트 등록 후 이벤트 처리
+		box.addEventListener('mousemove', (event) => {
+									//event매개변수로 넘어오는 객체?
+									//- 클릭이벤트가 발생한 <div></div>요소 자체의 정보를 지닌 이벤트 객체
+									
+			
+			text.innerText = (`마우스의 위치 : ${event.pageX}, ${event.pageY}`);
+		
+		});
+	</script>
+	
+	
+	
+	
+	
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<link rel="stylesheet" href="css/event.css">
+</head>
+<body>
+	BODY
+		<div>
+			DIV
+				<section>
+					SECTION
+						<p>
+							P
+						</p>						
+				</section>
+		</div>
+		
+		<script>
+		
+		/*
+			다른 for문의 문법 (for...of 문법)
+				
+				for(let 변수 of 이터러블){
+					
+					//반복실행할 코드 작성
+					
+				}
+			변수 : 반복할 때 마다 이터러블 객체의 각 요소를 반복해서 꺼내와 저장할 변수
+			이터러블 : 배열, 문자열, Set, Map 등 반ㄴ복가능ㅇ한 객체 넣을 수 있다.
+		
+		
+		//배열생성
+		const fruits = ["사과", "바나나", "오렌지"]; //<--배열
+		
+		//fruirs배열에 저장된 문자열의 갯수만큼 반복해서
+		//0 인덱스 위치의 "사과"부터 2 인덱스 위치에 저장된 "오렌지"를 차례대로 꺼내서
+		//변수에 저장 후 반복해서 사용
+		for(let fruit of fruits){
+			
+			console.log(fruit);
+						//사과 / 바나나 / 오렌지 차례대로 출력
+		}
+		
+		*/
+		
+		
+		
+
+//-------------------------------------------------------------------------------------------		
+		
+		
+			//현재 html파일에 작성된 모든 HTML태그들을 NodeList유사배열에 담아 선택해 옵니다.
+			const elements = document.querySelectorAll("*");
+			
+			//NodeList유사배열에 저장된 선택한 모든 HTML태그들을 순회하면서
+			//Click이벤트를 등록하고 각 HTML태그에 click발생하면
+			//event객체의 target속성과 event객체의 currentTarget속성을 호출한 값 출력
+			
+			/*
+			for(let i = 0; i < elements.length; i++){
+				
+				elements[i].addEventListener('click', function(event){
+					
+					//10개의 HTML태그들 중에서 click이벤트가 발생당한 HTML태그의 정보는
+					//event객체가 가지고 있기때문에 event객체의 target속성을 호출합니다.
+					
+					//event객체의 currentTarget속성을 호출하면
+					//이벤트 처리함수 funtion(event){}가 등록된 HTML태그를 반환합니다.
+					//(현재 이벤트 처리함수가 실행되고 있는 HTML태그를 반홥합니다.)
+					console.log(event.currentTarget.tagName);
+					
+					console.log("클릭 이벤트 실행 (이벤트 전파 중단)");
+					event.stopPropagation(); //부모요소로 이벤트처리 전달 안 되게하는 구문
+
+				}); //끝에 false가 생략됨. <- 기본값
+					//false 뜻 : 버블링 이벤트처리 전파하겠다. 
+					//(자식요소에 이벤트처리 후 부모요소에도 이벤트 처리 전파)
+				
+			}
+			*/
+		
+			
+			
+			for(let i of elements){
+				
+				i.addEventListener('click', function(event){
+					
+					console.log(event.currentTarget.tagName);
+					
+				}, true); //true를 넣으면 캡처링 이벤트 전파 방식으로 이벤트 처리하겠다.
+						  //이벤트가 발생한 부모요소의 이벤트를 먼저 처리하고 
+						  //이벤트처리가 등록된 자식요소의 이벤트까지 전파되어 나중에 처리합니다.
+				
+			};
+			
+			
+			
+			
+		</script>
+</body>
+</html>

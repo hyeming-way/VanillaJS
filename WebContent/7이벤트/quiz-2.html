@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제 2</title>
+  <link rel="stylesheet" href="css/solution-2.css">
+</head>
+<body>
+<!-- 
+마무리 문제2. 이벤트를 활용해 필요에 따라 표시 했다가 감추는 메뉴를 만들자
+                    여기에서는 = 아이콘을 클릭하면 메뉴가 표시되고,
+                     다시 클릭하면 메뉴가 숨겨지는 메뉴를 만들자
+           solution-2.css파일에는 버튼과 메뉴에서 사용할 .active스타일이
+                     미리 만들어져 있습니다. 
+                     버튼= 아이콘 을 클릭 할때마다 변수와 메뉴에 .active 스타일을
+                     토글 하는 소스를 작성해 보세요
+
+             참고.
+                1.웹 문서에 연결된 외부 스타일시트 파일에
+                  button.active와  nav.active 스타일이 미리 만들어져 있습니다 
+                2.버튼과 메뉴를 가져와 각각 변수에 저장합니다. 
+                3.버튼에 click이벤트가 발생했을때 실행할 함수를 연결하는데,
+                                  이 함수에서는 버튼과 메뉴에 active class 스타일을 토글합니다.
+
+
+
+  ====>    제공 된 실습할 파일 quiz-2.html , css\solution-2.css    
+
+ -->
+
+  <button id="bttn">&#9776;</button> <!-- &#9776; 햄버거 아이콘 표시 -->
+
+  <nav id="nav">
+    <ul>
+      <li><a href="#">Javascript</a></li>
+      <li><a href="#">Typescript</a></li>
+      <li><a href="#">Node.js</a></li>
+    </ul>
+  </nav>
+
+  <script>
+  
+  	//id가 bttn인 버튼 요소 가져오기
+  	const bttn = document.getElementById('bttn');
+  	
+  	//id가 nav인 네비게이션 요소 가져오기
+  	const nav = document.getElementById('nav');
+  	
+  	//햄버거 메뉴 버튼을 클릭하면 nav영억이 보이게 하고 
+  	//한번 더 클릭하면 nav영역이 다시 숨겨지게 하기
+  	
+  	//햄버거 메뉴 버튼에 클릭이벤트 등록
+  	bttn.addEventListener('click', () => {
+  		
+  		//nav에 'active' class속성값을 추가 또는 제거 (토글기능)
+  		nav.classList.toggle('active');
+  		
+  		//bttn에도 'active' class속성값을 추가 또는 제거 (토글기능)
+  		bttn.classList.toggle('active');
+  		
+  	});
+  	
+  	
+//------------------------------------------------------------------  	
+  	
+  /*	
+  	let bttn = document.querySelector("#bttn");
+  	let nav = document.querySelector("#nav");
+  	
+
+	  	bttn.addEventListener('click', function(){
+	  	  	
+	  	  nav.classList.toggle('active');
+
+	  		
+	  	});
+ */ 	
+
+  
+	
+  </script>
+
+
+
+</body>
+</html>

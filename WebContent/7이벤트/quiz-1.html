@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제 1</title>  
+  <style>
+    #container {
+      width: 600px;
+      margin: 20px auto;
+    }
+    h1 {
+      font-size:1.5rem;
+      text-align:center;
+      margin-bottom:20px;
+    }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <h1>마우스 오버하면 이미지 바꾸기</h1>
+    <img src="images/pic-1.jpg" alt="">
+  </div>
+
+  <script>
+  /*
+ 	  마무리 문제1. quiz-1.html문서에는 하나의 이미지가 삽입되어 있습니다.
+                          이 이미지 위영역에 마우스 포인터를 올려 놓았을때
+             images\pic-6.jpg이미지의 화면으로 바뀌었다가
+                          이미지 영역에서 마우스 포인터를 다른곳으로 이동하면
+             images\pic-1.jpg이미지로 바뀌는 코드작성
+
+                  참고. 
+             1. quiz-1.html문서에서 <img>태그에 id나 clas속성이없습니다
+                                태그 이름을 사용하거나 2개 이상의 선택자를 연결한 후 
+                <img>요소들을 가져와 각각 변수에 저장 합니다
+             2. 마우스포인터를 이미지 위에 올려 놓을때는
+                mouseover이벤트를 등록, 
+                                마우스포인터가 이미지영역위에 있다가 다른곳으로 이동하면
+                mouseout이벤트를 등록하여 발생시킵니다.
+
+             3. 이벤트가 발생했을때 img요소를 선택해 이미지를 변경하려면
+                src 속성의 이미지가 저장된 경로의 주소값으로 바꿉니다.
+  */
+  
+//-----------------------------------------------------------------------------------
+//방법1
+/*   
+    //이미지 영역을 가져와서 상수 저장 <img src="images/pic-1.jpg" alt="">
+    const image = document.querySelector('#container > img'); // > 자식선택자
+    
+	//image요소에 mouseover이벤트 등록 및 이벤트 처리 함수
+	image.addEventListener('mouseover', function(e){
+		
+		image.src = 'images/pic-6.jpg';
+			
+	});
+    
+	//image요소에 mouseout이벤트 등록 및 이벤트 처리 함수
+	image.addEventListener('mouseout', function(e){
+		
+		image.src = 'images/pic-1.jpg';
+			
+	});
+	
+*/	
+//-----------------------------------------------------------------------------------
+
+//방법2
+
+	//이미지 영역을 가져와서 상수 저장 <img src="images/pic-1.jpg" alt="">
+    const image = document.querySelector('#container > img'); // > 자식선택자
+    
+    //이미지 변경 함수(이벤트 처리 함수)
+    //event - 마우스 이벤트 객체
+    //event.type - 이벤트가 발생한 이벤트 종류명을 문자열 형태로 반환하는 속성
+    //event.type이 "mouseover"일 경우 images/pic-6.jpg 이미지로 변경될 것이고
+    //event.type이 "mouseout"일 경우 images/pic-1.jpg 원래 이미지로 복귀
+    function toggleImage(event){
+    	
+    	image.src = event.type === "mouseover"? "images/pic-6.jpg" : "images/pic-1.jpg"
+    	
+    	
+    }
+    
+   //마우스가 이미지 위에 올라갔을 때 toggleImage이벤트 처리 함수 호출
+   image.addEventListener('mouseover', toggleImage);
+   
+   //마우스가 이미지에서 벗어났을때 toggleImage이벤트 처리 함수 호출
+	image.addEventListener('mouseout', toggleImage);
+
+  
+  
+  
+  
+  </script>
+
+
+
+</body>
+</html>
