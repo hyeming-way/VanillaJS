@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      /* 댓글 박스를 꾸미는 스타일 */
+      .comment-box {
+          margin: 10px; /* 댓글 박스와 다른 요소들 사이에 10px 만큼의 간격을 둡니다. */
+          padding: 10px; /* 댓글 박스 내부에 10px 만큼의 여백을 줍니다. */
+          border: 1px solid #ddd; /* 댓글 박스 주위에 연한 회색 선을 추가하여 테두리를 만듭니다. */
+      }
+
+      /* 대댓글을 들여쓰기로 구분하기 위한 스타일 */
+      .reply-input {
+          margin-left: 30px; /* 대댓글은 부모 댓글보다 30px 더 들여서 보여줍니다. */
+      }
+
+      /* 버튼 스타일 */
+      button {
+          margin: 5px; /* 버튼 주위에 5px 만큼 간격을 둡니다. */
+          cursor: pointer; /* 마우스를 버튼 위에 올리면 클릭할 수 있음을 표시합니다. */
+      }
+  </style>
+</head>
+<body>
+<!-- 
+핵심 포인트:
+사용자가 최상위 댓글을 입력하면 addComment() 함수가 실행되어 댓글이 추가됩니다.
+댓글은 renderComments() 함수를 통해 화면에 다시 그려집니다.
+각 댓글에는 "답글 달기" 버튼이 있어, 이 버튼을 누르면 addReply() 함수가 실행되어 대댓글을 입력할 수 있습니다.
+대댓글은 부모 댓글 아래에 들여쓰기로 표시됩니다.
+ -->
+
+
+    <!-- 댓글을 입력할 부분 -->
+    <div id="commentContainer">
+        <!-- 댓글 입력란 -->
+        <input type="text" id="mainComment" placeholder="댓글을 입력하세요"> 
+        <!-- 등록 버튼, 클릭하면 addComment() 함수 실행 -->
+        <button onclick="addComment()">등록</button> 
+    </div>
+
+    <script>
+        // 댓글 데이터를 저장할 배열입니다. 댓글과 대댓글을 모두 저장합니다.
+        let comments = []; 
+
+        // 최상위 댓글을 추가하는 함수입니다.
+        function addComment() {
+            // 댓글 입력란을 가져옵니다.
+            const input = document.getElementById('mainComment'); 
+
+            // 사용자가 입력한 댓글 내용입니다.
+            const content = input.value.trim(); 
+
+            // 댓글이 비어 있으면 함수를 종료하고 아무것도 하지 않습니다.
+            if (!content) return; 
+
+            // 새로운 댓글 객체를 만듭니다. 
+            const newComment = {
+                id: Date.now(), // 현재 시간을 기준으로 고유한 ID를 생성합니다.
+                content: content, // 사용자가 입력한 댓글 내용
+                replies: [], // 이 댓글에 대한 대댓글을 저장할 빈 배열입니다.
+                parentId: null // 최상위 댓글이므로 부모 댓글이 없습니다.
+            };
+
+            // 새로 만든 댓글을 comments 배열에 추가합니다.
+            comments.push(newComment);
+
+            // 화면에 댓글을 다시 그립니다.
+            renderComments();
+
+            // 댓글 입력란을 비워줍니다.
+            input.value = '';
+        }
+
+        // 대댓글을 추가하는 함수입니다.
+        function addReply(parentId) {
+            // 대댓글 내용을 입력받을 창을 띄웁니다.
+            const replyContent = prompt('대댓글 내용을 입력하세요:');
+            
+            // 대댓글이 비어 있으면 아무것도 하지 않고 종료합니다.
+            if (!replyContent) return;
+
+            // 대댓글 객체를 생성합니다.
+            const newReply = {
+                id: Date.now(), // 대댓글의 고유한 ID
+                content: replyContent, // 대댓글 내용
+                replies: [], // 대댓글에는 대댓글이 없으므로 빈 배열을 할당
+                parentId: parentId // 대댓글이므로 부모 댓글의 ID를 기록합니다.
+            };
+
+            // 대댓글을 comments 배열에 추가합니다.
+            comments.push(newReply);
+
+            // 댓글을 다시 화면에 그립니다.
+            renderComments();
+        }
+
+        // 댓글을 화면에 표시하는 함수입니다.
+        function renderComments() {
+            // 댓글을 표시할 부모 요소를 찾습니다.
+            const container = document.getElementById('commentContainer');
+            
+            // 부모 요소의 내용을 지우고, 댓글 입력란과 등록 버튼만 다시 그립니다.
+            container.innerHTML = `
+                <input type="text" id="mainComment" placeholder="댓글을 입력하세요">
+                <button onclick="addComment()">등록</button>
+            `;
+
+            // 댓글 배열에 있는 각 댓글을 처리합니다.
+            comments.forEach(comment => {
+                // 최상위 댓글만 화면에 그립니다.
+                if (!comment.parentId) { 
+                    const commentDiv = createCommentElement(comment); // 댓글을 HTML로 만듭니다.
+                    container.appendChild(commentDiv); // 만든 댓글을 화면에 추가합니다.
+                }
+            });
+        }
+
+        // 댓글을 HTML로 변환하는 함수입니다.
+        function createCommentElement(comment, depth = 0) {
+            // 새로운 div 요소를 만들어서 댓글을 담을 공간을 만듭니다.
+            const div = document.createElement('div');
+            div.className = 'comment-box'; // 스타일을 적용하기 위해 클래스 추가
+            div.style.marginLeft = `${depth * 30}px`; // 깊이에 따라 들여쓰기를 적용합니다.
+
+            // 댓글의 HTML 구조를 만듭니다.
+            div.innerHTML = `
+                <p>${comment.content}</p> <!-- 댓글 내용 -->
+                <button onclick="addReply(${comment.id})">답글 달기</button> <!-- 대댓글을 달 수 있는 버튼 -->
+                <div id="replies-${comment.id}"></div> <!-- 대댓글을 이곳에 표시할 예정 -->
+            `;
+
+            // 이 댓글에 대해 작성된 대댓글들을 화면에 표시합니다.
+            comments.filter(reply => reply.parentId === comment.id) // 이 댓글에 대한 대댓글만 찾음
+                   .forEach(reply => {
+                       // 대댓글도 마찬가지로 재귀적으로 화면에 그립니다.
+                       const replyElement = createCommentElement(reply, depth + 1);
+                       div.querySelector(`#replies-${comment.id}`).appendChild(replyElement);
+                   });
+
+            // 완성된 댓글 요소를 반환합니다.
+            return div;
+        }
+    </script>
+</body>
+</html>
